@@ -1,4 +1,4 @@
-baseURL = 'https://blog.theodorc.no/'
+baseURL = '/'
 languageCode = 'en-us'
 title = 'blog - theodorc'
 theme = "terminal"
