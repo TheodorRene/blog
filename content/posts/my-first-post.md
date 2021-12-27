@@ -20,8 +20,7 @@ type stuff.
 
 ## Setup
 The page is made using Hugo and is deployed through Netlify. I might write a
-more comprehensive post about it later. There link to repo is [Here]("link will
-come"). I'm still learning the possibilities with Hugo but the most important
+more comprehensive post about it later. There link to repo is [here]("https://github.com/TheodorRene/blog"). I'm still learning the possibilities with Hugo but the most important
 thing is get the site up and have an easy way to write posts.
 
 
