@@ -49,6 +49,29 @@ myFunc :: BeatleMember -> HairCut
 myOtherFunc :: String -> Int
 ```
 
+Indexing a list is the cause of much confusion. It's by its inherent nature a
+partial function. Lets just write it like a function so that syntatic sugar does
+not cloud the mind
+
+```python
+# Indexing is just a function
+# python     haskell(infix)   haskell (as a function)
+  list[0] => list !! 0     == (!!) list 0
+```
+
+```haskell
+:t (!!)
+(!!) :: [a] -> Int -> a
+[0 ,0] !! 3
+*** Exception: Prelude.!!: index too large
+```
+
+It will not return a something for any input it gets! That why mostly don't
+index lists in functional languages. Exception are frowned upon, a function is a
+function. Input and output, plain and simple.
+
+Having exceptions ruins the flow.
+
 # Pure function are just like a table lookup
 BeatleMember have 4 possibilities, HairCut has 2 possibilites. Just by looking
 at the type declaration we know that the final set of possible input/output
