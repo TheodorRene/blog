@@ -11,7 +11,7 @@ showFullContent = false
 readingTime = true
 +++
 
-In my post about [notetaking](https://blog.theodorc.no/posts/notetaking/) I
+In my post about [notetaking](/posts/notetaking) I
 displayed my simple backup solution. It's been working great but the problem I
 had sometimes is that I download big files to my notetaking directories, which
 will fill the drive of the VM I'm renting (It's only about 25 GBs). 
