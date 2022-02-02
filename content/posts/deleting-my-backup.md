@@ -11,7 +11,7 @@ showFullContent = false
 readingTime = true
 +++
 
-In my post about [notetaking]("https://blog.theodorc.no/posts/notetaking/) I
+In my post about [notetaking](https://blog.theodorc.no/posts/notetaking/) I
 displayed my simple backup solution. It's been working great but the problem I
 had sometimes is that I download big files to my notetaking directories, which
 will fill the drive of the VM I'm renting (It's only about 25 GBs). 
@@ -59,8 +59,8 @@ So in the end the syntax was wrong and I lost my backup :--) Till next time,
 be careful with which flags I'm using.
 
 Luckily I have all the files locally, so on the next backup run they will
-return. Not so lucky is two of my projects. Images for my [homepage]("https://theodorc.no")
+return. Not so lucky is two of my projects. Images for my [homepage](https://theodorc.no)
 (which I'm already thinking about retiring) was deleted and the database for my
-[ChessPuzzleBot]("https://twitter.com/ChessDaily") was deleted. Oh well.
+[ChessPuzzleBot](https://twitter.com/ChessDaily) was deleted. Oh well.
 
 
