@@ -11,10 +11,11 @@ showFullContent = false
 readingTime = true
 +++
 
-In my post about [notetaking](/posts/notetaking) I
-displayed my simple backup solution. It's been working great but the problem I
-had sometimes is that I download big files to my notetaking directories, which
-will fill the drive of the VM I'm renting (It's only about 25 GBs). 
+In my post about [notetaking](/posts/notetaking) I displayed my simple backup
+solution (It's more like mirroring/online syncing since I don't keep old data).
+It's been working great but the problem I had sometimes is that I download big
+files to my notetaking directories, which will fill the drive of the VM I'm
+renting (It's only about 25 GBs). 
 
 ```bash
 > cat /etc/cron.daily/copy_notes
@@ -51,11 +52,13 @@ theodorc@api> ls
 dev gurba no_backup_gurba
 ```
 
-My little script uses the "--delete" flag to delete files that no longer exist on
-my local computer. If I delete something locally, I most likely don't care about
-it being in my backup. Rsync checks my home directory on the remote and deletes
+My little script uses the "--delete" flag to delete files that no longer exist
+on my local computer. If I delete something locally, I most likely don't care
+about it being in my backup. (I should probably change this assumption, since
+accidentally deleting a file locally will save me. Bricking my computer has been
+the biggest worry). Rsync checks my home directory on the remote and deletes
 everything that doesn't not match the files in the current directory on the
-local machine.
+local machine. 
 
 So in the end the syntax was wrong and I lost my backup :--) Till next time,
 be careful with which flags I'm using.
