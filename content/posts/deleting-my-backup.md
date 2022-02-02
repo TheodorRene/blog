@@ -30,22 +30,24 @@ made a test directory to try it out with two example files.
 
 ```bash
 > mkdir test && cd test
-> touch gurba && touch no_backup
+~/test> touch gurba no_backup # create two empty files
+~/test> ls
+gurba no_backup
 ```
 With not much thought, I copied my original oneliner for backing up my files,
 added the "--exclude" flag and set my current directory as the source and the home
 folder on my server as the destination.
 
 ```bash
-> rsync -a --delete --exclude="^no_backup.*" . api.theodorc.no:~
+~/test> rsync -a --delete --exclude="^no_backup.*" . api.theodorc.no:~
 ```
 
 This command ended up deleting almost every file in the home directory of my
 server. Do you see why?
 
 ```bash
-local> ssh api.theodorc.no
-api> ls
+theodorc@disco> ssh api.theodorc.no # yes, the hostname of my laptop is "disco"
+theodorc@api> ls
 dev gurba no_backup_gurba
 ```
 
