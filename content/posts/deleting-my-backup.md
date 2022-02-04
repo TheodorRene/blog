@@ -12,10 +12,10 @@ readingTime = true
 +++
 
 In my post about [notetaking](/posts/notetaking) I displayed my simple backup
-solution (It's more like mirroring/online syncing since I don't keep old data).
-It's been working great but the problem I had sometimes is that I download big
-files to my notetaking directories, which will fill the drive of the VM I'm
-renting (It's only about 25 GBs). 
+solution (It's more like mirroring/online syncing since I don't keep old data
+because of storage limitations). It's been working great but the problem I had
+sometimes is that I download big files to my notetaking directories, which will
+fill the drive of the VM I'm renting (It's only about 25 GBs). 
 
 ```bash
 > cat /etc/cron.daily/copy_notes
