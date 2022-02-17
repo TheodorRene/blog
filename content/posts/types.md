@@ -14,18 +14,25 @@ draft = true
 
 Types is something I've taken for granted in programming languages. They just
 exist, and are probably necessary. Gradually when going from dynamically typed
-languages (types are not known at compile time), like Python to statically typed
-(types are known at compile time) languages like Java I taken to appreciating
-types. And I think few people appreciate and understand the importance. This is
-my intuition and how I understand types and their importance. Most of it will be
-applicable for any programmer but the ideas are quite common when working within
-the functional programming paradigm
+languages (types not known at compile time), like Python to statically typed
+(types known at compile time) languages like Java I taken to appreciating types.
+And I think few people appreciate and understand the importance. In one way they
+have to be there because of technical limitations but in other ways it's a very
+important tool for writing software that's easier to work. This blogpost
+describes my intuition and how I understand types and their importance. Most of
+it will be applicable for any programmer but the ideas are quite common when
+working within the functional programming paradigm
 
-This post will be affected by my learnings of Haskell the last year.
+This post will be affected by my learnings of Haskell the last few years.
 
 Types are all about setting boundaries for what a function can take as input and
+// Its also when defining data, records etc
 what it will return on output. Giving limiting types will reduce the amount of
 possible input and same with the output type. 
+
+A good programming language should the user reduce the cognitive load. Reducing
+whats stored in my temporary memory. This lets the user focus on the
+important things.
 
 # Partial functions
 Functions should be able to handle any input parameters it gets. In many languages this is
@@ -71,6 +78,8 @@ index lists in functional languages. Exception are frowned upon, a function is a
 function. Input and output, plain and simple.
 
 Having exceptions ruins the flow.
+
+Some function will be as general as possible. So adapt to the situation.
 
 # Pure function are just like a table lookup
 BeatleMember have 4 possibilities, HairCut has 2 possibilites. Just by looking
