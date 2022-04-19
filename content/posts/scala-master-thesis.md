@@ -9,6 +9,7 @@ keywords = ["scala", "pl", "master thesis"]
 description = ""
 showFullContent = false
 readingTime = true
+draft = true
 +++
 
 ## Named tuples
