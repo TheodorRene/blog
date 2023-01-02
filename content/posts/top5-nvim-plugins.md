@@ -78,7 +78,7 @@ and boom you're there.
 Here I want to leap to `tabline`. I press `sta` in sequence, noticing that there
 are duplicates and have to press `s` as well which is highlighted in pink/purple.
 
-## 3. Neogit/Gitsigns/Diffviewer
+## 3. Neogit/Gitsigns/Diffview
 
 I'm cheating I know but I couldn't just highlight one of them, and I should
 probably do a whole post on working with git inside vim. Git is actually
@@ -98,7 +98,7 @@ mappings introduced with the plugins)
 - Show new or deleted lines. Keybinding `ctrl-g+t+{d,l}`. Mnemonic: git
   toggle {delete_lines,lines}
 
-### [Diffviewer]("https://github.com/sindrets/diffview.nvim")
+### [Diffview]("https://github.com/sindrets/diffview.nvim")
 
 - Nice diffviewer (duh). `ctrl+g+d+o`
 - Easily diff against a branch `ctrl+g+d+d` to diff against `develop`
@@ -111,7 +111,7 @@ mappings introduced with the plugins)
 
 - An attempt to create [Magit]("https://magit.vc/")(git plugin for emacs) in Neovim. Mapped to `Alt+s`
 - Nice keybindings for basic and advanced operations
-- Integration with diffviewer
+- Integration with diffview
 
 ![Neogit](/img/neogit.png)
 
