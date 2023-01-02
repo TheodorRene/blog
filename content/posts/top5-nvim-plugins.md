@@ -1,5 +1,5 @@
 +++
-title: "My top 5 Neovim plugins for 2023"
+title= "My top 5 Neovim plugins for 2023"
 date = "2023-01-02T16:04:00+01:00"
 author = "Theodor "
 authorTwitter = "theodorc_" #do not include @
