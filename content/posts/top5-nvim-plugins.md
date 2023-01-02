@@ -206,3 +206,5 @@ working with lsp-features(renaming etc). Good luck ricing your setup and
 hopefully the ecosytem will thrive and continue to be better. Support your local
 plugin maintainer ✊. I'm @theodorc\_ on
 [Twitter]("https://twitter.com/theodorc_") and @theodorc@snabelen.no on Mastodon
+
+(And yes, I have line numbers disabled 😎)
