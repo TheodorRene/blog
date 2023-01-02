@@ -9,18 +9,18 @@ keywords = ["", ""]
 description = ""
 showFullContent = false
 readingTime = true
-draft = true
+draft = false
 +++
 
-I finally finished my master thesis this June (will write a post on it someday),
+I finally finished my master thesis June 2022 (will write a post on it someday),
 and I started in my first "real" job in August. The project that I was put on
 was a brand new Next.js project with typescript+tailwind+hasura(postgres).
 Initially I started using VScode(which seems to be turning into a default for
 javascript projects 🤷), but I was quickly hitting its limits on
-configurability. One Friday night i rewrote my neovim config into lua, and now
+configurability. One Friday night I rewrote my neovim config into lua, and now
 I'm working on honing the config until I get the comfiest editing setup. With
 this, quite laborious and long, process I have collected a few neat and nice
-plugins. Here is my list on great neovim plugins (mostly written in lua) out of
+plugins. Here is an unranked list on great neovim plugins (mostly written in lua) out of
 my now 40ish installed
 [plugins]("https://github.com/TheodorRene/dotfiles/blob/master/nvim/lua/plugins.lua").
 (I assume you have LSP set up so I will not highlight the basic plugins to get
@@ -29,11 +29,11 @@ LSP working in this post)
 (and yes the syntax highlighting looks kinda funky. I had to set it to vimscript
 since lua isn't supported(???) by the Hugo theme I'm using)
 
-## Neoscroll
+## 1. Neoscroll
 
 Vertical movement has been and is still my limiting factor when it comes to
 speed. I've tried using `ctrl+d` and `ctrl+u` for page up and down, and also
-`ctrl+e` and `ctrl+y` for scrolling by lines but I always get dizzy and
+`ctrl+e` and `ctrl+y` for scrolling line-by-line but I always get dizzy and
 disoriented. The first step in fixing this is a tip from
 [ThePrimagen]("https://www.youtube.com/channel/UC8ENHE5xdFSwx71u3fDH5Xw"):
 
@@ -53,38 +53,38 @@ This options makes it so that the buffer starts scrolling earlier to always show
 8 lines above or under the cursor. If you are still unsure what this does
 remember vim/nvims help pages are pretty good `:h scrolloff`
 
-[Neoscroll]("https://github.com/karb94/neoscroll.nvim") will give a smooth
-motion when using scrolling keybindings; mimicking the act of scrolling with a
-mouse. Much more pleasant for the eye, and nice when that sort of exploration of
-the file is needed.
+[Neoscroll]("https://github.com/karb94/neoscroll.nvim") adds smooth motion when
+using scrolling keybindings; mimicking the act of scrolling with a mouse. Much
+more pleasant for the eye, and convenient when that sort of file exploration is
+needed.
 
 ![Neoscroll in action](/img/neoscroll.gif)
 
 Unfortunately the framerate of the gif does not do the improvement justice so
 you just have to trust me.
 
-## Leap
+## 2. Leap
 
 Another plugins thats helped with my vertical speed is
 [Leap]("https://github.com/ggandor/leap.nvim"). It adds a new motion using `s`
 ("leap" forwards) and `S` ("leap" backwards). Pressing `s` and two characters it
 will jump to the first occurence of that pair of characters. With duplicates it
-shows you a third characted to press to leap to that destination. It feels like
+shows you a third character to press to leap to that destination. It feels like
 magic when you use it since you look at where you want to go, do the keystrokes,
 and boom you're there.
 
 ![Leap](/img/leap.gif)
 
-Here I want to leap to `tabline`. I press `sta` in sequence, notice that there
+Here I want to leap to `tabline`. I press `sta` in sequence, noticing that there
 are duplicates and have to press `s` as well which is highlighted in pink/purple.
 
-## Neogit/Gitsigns/Diffviewer
+## 3. Neogit/Gitsigns/Diffviewer
 
 I'm cheating I know but I couldn't just highlight one of them, and I should
 probably do a whole post on working with git inside vim. Git is actually
 something I enjoy working with. I currently have 26 aliases in my .gitconfig and
 I've set up [difftastic]("https://difftastic.wilfred.me.uk/") as my external
-difftool and vscode as my mergetool(haven't gotten there with neovim as of yet).
+difftool and VScode as my mergetool(haven't gotten there with neovim as of yet).
 So I'll keep this short since we are cheating.
 
 (The keymappings are mostly my own, and does not necessarily reflect the default
@@ -119,9 +119,9 @@ Right part of the screen is Neogit after pressing `c` to commit. It prompts with
 options to add, e.g `a` to amend or `h` to disable hooks. Then `c` again will
 open a buffer to edit the commit message.
 
-## Telescope
+## 4. Telescope
 
-Telescope is a given if you have ever delved into neovim configuration. Its
+[Telescope]("https://github.com/nvim-telescope/telescope.nvim") is a given if you have ever delved into neovim configuration. Its
 building itself up as a standard way of picking things from a list when using
 neovim. Its made by one on the neovim maintainers and is a solid piece of work
 with many integrations. These are the ones I use:
@@ -160,11 +160,11 @@ all files:
 
 Both feature a nice preview of the file, but I've disabled this for `ctrl+p`.
 
-## Which-key
+## 5. Which-key
 
 With all these plugin I've hit a limit on the number of keybindings my feeble
 brain can remember. What I've started to do is to namespace actions with a
-certain `ctrl+<char>` command. Maybe not the most popular route, looks very
+certain `ctrl+<char>` command. Maybe not the most popular choice, looks very
 emacsy, but I'm not a big fan of using the leader key since it feels to slow. An
 example is all git related actions are grouped under `ctrl+g`:
 
@@ -179,8 +179,8 @@ nmap('<C-g>dd', '<CMD> DiffviewOpen develop...HEAD <CR>', "GIT: Diff develop")
 nmap('<A-g>', '<CMD> Neogit <CR>', "Neogit") -- Except for this one 🤷
 ```
 
-Gitsigns mappings: see GitSigns documentation on where they should be placed
-as `gs` is not in scope in this example
+Gitsigns mappings: (see GitSigns documentation on where they should be placed
+as `gs` is not in scope in this example)
 
 ```vim
 nmap('<C-g>hs', ':Gitsigns stage_hunk<CR>', {desc='stage hunk'})
@@ -192,15 +192,17 @@ nmap('<C-g>tl', gs.toggle_linehl, {desc='toggle line highlight'})
 
 When I press `ctrl+g` alone a "HUD" will open, displaying all possible actions.
 What you might have noticed is that there is a `desc` options for each keymap.
-This information is displayed in the hud. See image under:
+This information is displayed in the HUD. See image below:
 
 ![Which key](/img/which-key.png)
 
 ## End
 
-These were my plugins. Let me know if you have any tips of other plugins I
-should use. The once I use now can be found [here]("https://github.com/TheodorRene/dotfiles"). In the future I want
-to have a smoother Vim-session experience, and maybe a more visually appealing
-way of working with lsp-features(renaming etc). Good luck ricing your setup and
+These were some of my favorite plugins. Let me know if you have any tips of
+other plugins I should use. The once I use now can be found
+[here]("https://github.com/TheodorRene/dotfiles"). In the future I want to have
+a smoother Vim-session experience, and maybe a more visually appealing way of
+working with lsp-features(renaming etc). Good luck ricing your setup and
 hopefully the ecosytem will thrive and continue to be better. Support your local
-plugin maintainer ✊
+plugin maintainer ✊. I'm @theodorc\_ on
+[Twitter]("https://twitter.com/theodorc_") and @theodorc@snabelen.no on Mastodon
