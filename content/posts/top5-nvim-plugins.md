@@ -9,7 +9,7 @@ keywords = ["", ""]
 description = ""
 showFullContent = false
 readingTime = true
-draft = false
+draft = true
 +++
 
 I finally finished my master thesis this June (will write a post on it someday),
