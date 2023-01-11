@@ -8,6 +8,7 @@ paginate = 5
   # dir name of your main content (default is `content/posts`).
   # the list of set content will show up on your index page (baseurl).
   contentTypeName = "posts"
+  descriptin = "Blog on programming languages, editors and whatever else I find interesting. Post by Theodor René Carlsen"
 
   # ["orange", "blue", "red", "green", "pink"]
   themeColor = "orange"
