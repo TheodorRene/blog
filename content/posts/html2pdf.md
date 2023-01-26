@@ -9,6 +9,7 @@ keywords = ["", ""]
 description = ""
 showFullContent = false
 readingTime = false
+draft = true
 +++
 
 # TODO Better english
