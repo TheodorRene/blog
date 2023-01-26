@@ -1,18 +1,21 @@
 +++
-title = "HTML2PDF"
-date = "2021-12-27T20:21:52+01:00"
+title = "Html2pdf"
+date = "2023-01-26T19:59:45+01:00"
 author = ""
 authorTwitter = "" #do not include @
 cover = ""
-tags = ["notetaking"]
+tags = ["", ""]
 keywords = ["", ""]
 description = ""
 showFullContent = false
 readingTime = false
-draft = true
 +++
 
 # TODO Better english
+
+# Resources
+
+--Great resource https://excessivelyadequate.com/posts/print.html
 
 # Generating PDFs, the easy way
 
@@ -35,7 +38,7 @@ application does not need javascripthydration.
 
 ## Digression 
 A site that would normally would be rendered as 7 pages was up 30k pages.
-This was a chromium bug: ADD LINK
+This was a chromium bug: https://bugs.chromium.org/p/chromium/issues/detail?id=1161709
 
 
 ## Correct breaking of pages
