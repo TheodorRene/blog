@@ -35,7 +35,7 @@ Vertical movement has been and is still my limiting factor when it comes to
 speed. I've tried using `ctrl+d` and `ctrl+u` for page up and down, and also
 `ctrl+e` and `ctrl+y` for scrolling line-by-line but I always get dizzy and
 disoriented. The first step in fixing this is a tip from
-[ThePrimagen]("https://www.youtube.com/channel/UC8ENHE5xdFSwx71u3fDH5Xw"):
+[ThePrimagen](https://www.youtube.com/channel/UC8ENHE5xdFSwx71u3fDH5Xw):
 
 ```vim
 nmap("<C-u>", "<C-u>zz");
