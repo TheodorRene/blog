@@ -25,6 +25,10 @@ og bruk BlockKit for å lage meldingen du ønsker. Sjekk ut payloaden og bruk de
       forventer en lenke. Da må jeg hoste bildet et sted. Fant til slutt
       `uploads`
 4. Bruke waybackmachine
+https://archive.org/help/wayback_api.php
+https://en.wikipedia.org/wiki/Help:Using_the_Wayback_Machine#Specific_archive_copy
+
+Make sure you wait for a specific html tag
 
 5. Lage en liste med nettsider og tidsintervall
 Hvordan sjekke om et tidsintervall finnes
