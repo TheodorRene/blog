@@ -39,3 +39,9 @@ In isolation, what does this mean?
 
 
 Is the problem yaml? Traefik? or tooling?
+
+Some tooling is often tied to VSCode, which I would argue is unhealthy for the
+ecosystem. I don't what a chromeification of the IDE space, where one company
+controls how developers code. 
+
+What are names and what are 
