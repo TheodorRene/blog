@@ -1,36 +1,35 @@
 +++
 title = "10 things holding you back from becoming the worlds best developer"
 date = "2024-01-08T17:36:40+01:00"
-author = "Theo"
+author = "Theodor René Carlsen (Theo)"
 authorTwitter = "theodorc_" #do not include @
 cover = ""
-tags = ["", ""]
-keywords = ["", ""]
-description = ""
+tags = ["10xDeveloper", "programming", "tips&tricks"]
+keywords = ["best", "10xDeveloper"]
+description = "Do these 10 simple things different and your life will change"
 showFullContent = false
 readingTime = false
-draft = true
 +++
 
 As a last minute addition to a "Tech show n tell" at my previous employer I
-quickly put together this list on the top 10 things holding you back from coming
-the worlds best developer. I enjoyed making the list so to make sure it doesn't
-get lost in void I'm posting it here as well. Its been translated from Norwegian
-and some minor adjustments are made so that it works as a blogpost. 
+quickly put together this list of "the top 10 things holding you back from
+coming the worlds best developer/programmer". I enjoyed making the list so to
+make sure it doesn't get lost in the void I'm posting it here as well. Its been
+translated from Norwegian and some minor adjustments are made so that it works
+as a blogpost. 
 
 So follow along and make the necessary adjustments so you can be that 10x
-developer.
-
+developer you've always dreamed of.
 
 (Also I've moved to Copenhagen. Please get in touch if you are in the city and
-want hang. k thx bye)
+want to hang. k thx bye)
 
-# 1. You have a functioning Caps lock key
+## 1. You have a functioning Caps lock key
 
-F*ck caps lock. Why would you ever use that. Please bind it to Ctrl and your
-wrists will thank me later
+F*ck caps lock. Why would you ever use caps lock. Please bind it to Ctrl and
+your wrists will thank me later
 
-# 2. You're not using brands in Typescript
+## 2. You're not using brands in Typescript
 Don't let your code be stringly typed!! Add some compile time differentiation
 between your strings:
 
@@ -40,13 +39,14 @@ type Creds = {
   password: string;
 };
 
-function logIn(username: string, password: string) {}
+function logIn(username: string, password: string) {/* do stuff */}
 logIn(creds.password, creds.username);
-// No error
+// No type error, but obviously wrong
 
 // Typescript/javascript voodoo magic. Don't worry about it
 declare const brand: unique symbol;
-// Woohoo
+
+// Woohoo brands
 type Brand<T, TBrand> = T & { [brand]: TBrand };
 type Username = Brand<string, "Username">;
 type Password = Brand<string, "Password">;
@@ -64,28 +64,33 @@ logIn(creds.password, creds.username);
 <!--       Type '"Password"' is not assignable to type '"Username"'.(2345) -->
 ```
 
-(Again you can't differentiate between `Username` and `Password` at runtime, but
-its still pretty convenient)
+Be aware that you can't differentiate between `Username` and `Password` at
+runtime, but it's still convenient.
 
-# 3. Your .gitconfig is still the default!!
+In the end they work like normal strings, and can even be passed to functions
+that take "string" as a parameter. But it will error if you are using brands and
+it doesn't match the brand set in the function declaration. 
+
+## 3. Your .gitconfig is still the default!!
 
 ```bash
 # just do `git <ur alias>`
 [alias]
 unstage = restore --staged # why isn't this already in git??
-amend = commit --amend --no-edit # amend, don't reword commmit message
-pr = !gh pr create # The github cli is pretty nice! Create PR from the cli.
+amend = commit --amend --no-edit # amend and don't reword commit message
+pr = !gh pr create # The github cli is pretty nice! Creates a PR
 prview = !gh pr view --web # View pull request in browser
 view = !gh repo view --web # View repo in browser
 pf = push --force-with-lease # Always --force-with-lease, never --force
+
 prfix = !git commit -a --amend --no-edit && git push --force-with-lease
 # -a : Add all tracked files
 # --amend: amend to previous commit
 # --no-edit: dont prompt for rewording of commit message
-# Use this when fixing typos in your code when doing pull requests
+# Use this when your colleagues highlight typos or want you to rename a function in your PR
 
 [pull]
-rebase = true # always rebase
+rebase = true # 🌶 take: always rebase
 autoStash = true # Basically: git stash && git pull && git stash pop
 
 [push]
@@ -103,80 +108,137 @@ alias lr="ls -ltrh"
 # -h human readable size
 ```
 
-# 4. You do crazy git stuff without doing a backup
+## 4. You do crazy🥴 git stuff without doing a backup
 
-Just copy the folder, do crazy stuff in the original folder, if all hell breaks
-loose just start over in the backup folder. There is no shame in this! Swallow
-your pride! And I'm saying this as person that is above average interested in
-git.
+Just copy the folder, do wacky stuff in the original folder and if all hell
+breaks loose just start over in the backup folder. There is no shame in this!
+Swallow your pride! And I'm saying this as person that has an above average
+interest in git.
 
-# 5. You're try actively to memorize cli commands!!
+## 5. You actively try to memorize🧠 cli commands!!
+
 Just use `Ctrl-r` and search through your history. If you use a command often
 enough you will remember it. Anything else is not worth memorizing.
 
-Bonus tip: Use [fzf](https://github.com/junegunn/fzf) for searching.
-Bonus tip numero dos: Use Github Copilot Cli
+* Bonus tip: Use [fzf](https://github.com/junegunn/fzf) or some other fuzzy
+  searcher with "Ctrl-r" 
+* Bonus tip numero dos🌶: Use Github Copilot Cli
 
-# 6. You're prompt is on a single line!
+# 6. Your prompt is on a single line!
 
-Add some space! Take a breather
+Add some space! Take a breather 🫁😫
 
+I'm sorry to put Scott Hanselman as an example here, I really like him, but
+please add a newline!! It hurts looking at it. (I also despise the Powerline
+theme, but I won't go into that. It's a personal preference)
+
+![Scott Hanselmans prompt](/img/scott_screen.png)
+
+My prompt:
 ```bash
-~ dev/blank/val |main*|
+~ dev/blank/val |main*|                                               [18:42:23]
 > echo "hello"
 "hello" 
 ```
-Lag litt plass!!!!
 
-# 7. You are not using Ctrl+k in Slack
+- Full path from $HOME indicated as a tilde(~)
+- Current branch and if there are any changes
+- Removed unnecessary info I already know  (like username and hostname)
+- Simple prompt arrow, or "🐊crocodiles mouth" as we say in Norwegian
+- Timestamp for when the command was run. Good for long running tasks, but
+  thinking about removing it
+- I'm also considering adding the exit code of the command, but I don't use that
+  info often
 
-Its so nice. Just try it. It's also supported many other places:
-  _ http://react.dev
-  _ tailwind
-  _ nextjsauth
-  _ nextjs 
+## 7. You're not using Ctrl+k in Slack or Github 😤
+
+Ctrl+k is usually search or a command bar for your current application.
+
+It's sooo nice. Just try it. It's also supported many other places(sorted by how
+often I use it):
+  - Github
+  _ tailwind 
   - Spotify(!)
-  etc etc
-  I must warn you that it will be very annoying when a page doesnt implement
-  this. 
+  _ react.dev
+  _ nextjs 
+  _ nextjsauth
+++++ many more
 
-  Forresten: ctrl+l for å hoppe til urlbar. Or maybe Cmd+l on mac
+I must warn you that it will be very annoying when a page doesn't implement
+this. (Like my blog!)
 
-  (Bonus points for using  vimium to jump to things in the browser)
+Bonus: `Ctrl+l` to jump to the urlbar. Possibly `Cmd+l` on Macs
 
-# 8. You have emails in you email client
+Bonus 2: Using [vimium](https://vimium.github.io/) for navigation and to click
+links in the browser
 
-And by that I mean, why are you not using inbox zero??? I think this was a big
-hype a couple of years ago, but I never stopped. Heres how it works
+## 8. You see emails when you open your email client 📧
 
-1. Email comes in
-    - Archive if any actions needed to be done, postpone if I can't do anything
-      about now or delete it.
-      - The peace of mind I get when I open my client and there is no emails
-        there is just breathtaking. It means there is nothing I have to do.
-        (And yes sometimes an email hangs around. I have currently have like 4
-        emails that I have not dealt with)
+And by that I mean, why are you not using inbox zero📥??? I think this was a big
+hype a couple of years ago, and I never stopped. 
 
-Also add keybindings in Gmail. You do it in the settings somewhere and then you
-can archive by just pressing "e" and navigate with vim-keybindings
+**Here's how it works:**
 
-# 9 You remember the difference between ?? and || in javascript
-    - You are too good, mr/ms phd.
-    - Touch grass
-    - You should google it like once a week and then double check later when
-      submitting the PR
+You check your emails. If any of the emails needs no action from you just
+archive them. If you need to handle them somehow, do it right away. If you can't
+do it now, postpone it until later when you can(Gmail has a button for this).
+    Any other emails with like tickets or attachments I need later I just
+    favorite or label and then archive.
 
-# 10. You are using vim
-I have probably saved 27 seconds using Vim over the last 5 years I've used vim.
-And I've lost 7 months to configuring stuff and debugging. Just use vscode with
-vim keybindings unless you are looking for a new hobby
+This way you get a peace of mind when you open your email client, knowing that
+if there are no emails, there is nothing for you to do. 
 
-# 11. Du lager ikke en ny spilleliste hver måned
-(also I should use Last.fm, but I'm in a sunk cost (opposite?) where there
-are so many years I haven't used it that i feel bad for the lost data) -
-I've done this the last 3 year Superbonus: switch up your perfume when your
-going into a new era. I'm currently wearing my "first year in
-Copenhagen"-cologne. Quite rare!
+In practice its quite different, but you get the idea. Sometimes I keep an email
+around until I've handled it. I currently have 4 emails in my mailbox/client.
+
+Bonus: Add keybindings in Gmail. You do it in the settings
+[somewhere](https://support.google.com/mail/answer/6594?hl=en&co=GENIE.Platform%3DDesktop)
+and then you can archive by just pressing "e" and navigate with vim-keybindings
+
+## 9. You remember the difference between `??` and `||` in Javascript
+
+- You are too good at your job
+- Touch grass
+- You should google it once a week and then double check later when submitting the PR
+
+## 10. You use Vim
+
+I have probably saved 27 seconds over the last 5 years I've been using
+Vim/Neovim. And I've lost 7 months to configuring stuff and debugging. Just use
+VScode with Vim keybindings unless you are looking for a new hobby.
+
+(Check out my [dotfiles](https://github.com/TheodorRene/dotfiles/tree/main/nvim)
+repo for neovim inspiration or see my previous
+[blogpost](/posts/top5-nvim-plugins) on some cool plugins.
+
+
+# 11. (Bonus tip because why artificially limit yourselves) You have one big playlist with everything!👿
+
+Make a new one every month!! I've done this for the last 3 years and its fun to
+look back at. It also keeps my playlist fresh and in tune with my rapidly
+changing music taste when shuffling the current month. They are all in a folder,
+but Spotify doesn't allow me to share it so here is my
+[playlist](https://open.spotify.com/playlist/2u2FRGC4IIkW6y7xXpUwFQ) for January
+thus far.
+
+And yes, I should probably start using Last.fm, but I'm in a reverse sunk cost
+fallacy where there are so many years I haven't used it that i feel bad for the
+lost data 😢 Oh well. Maybe one day
+
+Superbonus: switch up your perfume when your going into a new *era*. I'm currently
+wearing my "new job in Copenhagen"-cologne. Quite rare!
+
+# Fin
+
+That's all! Now you will finally be the best. Enjoy your new life. Also share
+your personal list with me either on X(`@theodorc_`) or
+Mastodon(`theodorc@snabelen.no`). Any typos or grammatical errors can be fixed
+with a PR or an issue on
+[GH](https://github.com/TheodorRene/blog/blob/main/content/posts/worlds-best-programmer.md).(There
+might be some because this blogpost is *free from AI*: No LLMs was used in the
+making of it.
+
+Cowsay moo:
 
  ______________
 < Takk for meg >
