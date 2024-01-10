@@ -15,14 +15,14 @@ As a last minute addition to a "Tech show n tell" at my previous employer I
 quickly put together this list of "the top 10 things holding you back from
 coming the worlds best developer/programmer". I enjoyed making the list so to
 make sure it doesn't get lost in the void I'm posting it here as well. Its been
-translated from Norwegian and some minor adjustments are made so that it works
-as a blogpost. 
+translated from Norwegian and some minor adjustments has been made so that it
+works as a blogpost. 
 
 So follow along and make the necessary adjustments so you can be that 10x
 developer you've always dreamed of.
 
-(Also I've moved to Copenhagen. Please get in touch if you are in the city and
-want to hang. k thx bye)
+(Also I've moved to Copenhagen🇩🇰. Please get in touch if you are in the city and
+want to hang or chat. k thx bye)
 
 ## 1. You have a functioning Caps lock key
 
@@ -74,6 +74,7 @@ it doesn't match the brand set in the function declaration.
 ## 3. Your .gitconfig is still the default!!
 
 ```bash
+> cat ~/.gitconfig
 # just do `git <ur alias>`
 [alias]
 unstage = restore --staged # why isn't this already in git??
@@ -87,7 +88,8 @@ prfix = !git commit -a --amend --no-edit && git push --force-with-lease
 # -a : Add all tracked files
 # --amend: amend to previous commit
 # --no-edit: dont prompt for rewording of commit message
-# Use this when your colleagues highlight typos or want you to rename a function in your PR
+# Use this when your colleagues highlight typos or wants you
+# to rename a function in your PR
 
 [pull]
 rebase = true # 🌶 take: always rebase
@@ -150,18 +152,18 @@ My prompt:
 - I'm also considering adding the exit code of the command, but I don't use that
   info often
 
-## 7. You're not using Ctrl+k in Slack or Github 😤
+## 7. You're not using `Ctrl+k` in Slack or Github 😤
 
-Ctrl+k is usually search or a command bar for your current application.
+`Ctrl+k` is usually search or a command bar for your current application.
 
 It's sooo nice. Just try it. It's also supported many other places(sorted by how
 often I use it):
-  - Github
-  _ tailwind 
+  - MDN
+  - Tailwind docs
   - Spotify(!)
-  _ react.dev
-  _ nextjs 
-  _ nextjsauth
+  - New React dos
+  - Nextjs docs
+
 ++++ many more
 
 I must warn you that it will be very annoying when a page doesn't implement
@@ -234,9 +236,9 @@ That's all! Now you will finally be the best. Enjoy your new life. Also share
 your personal list with me either on X(`@theodorc_`) or
 Mastodon(`theodorc@snabelen.no`). Any typos or grammatical errors can be fixed
 with a PR or an issue on
-[GH](https://github.com/TheodorRene/blog/blob/main/content/posts/worlds-best-programmer.md).(There
-might be some because this blogpost is *free from AI*: No LLMs was used in the
-making of it.
+[Github](https://github.com/TheodorRene/blog/blob/main/content/posts/worlds-best-programmer.md).(There
+might be some because this blogpost is 🧙*free from AI*🧙: No LLMs was used in the
+making of it and thus no graphics card were hurt in the process😄. 
 
 Cowsay moo:
 
