@@ -4,47 +4,49 @@ date = "2024-01-08T17:36:40+01:00"
 author = "Theodor René Carlsen (Theo)"
 authorTwitter = "theodorc_" #do not include @
 cover = ""
-tags = ["10xDeveloper", "programming", "tips&tricks"]
-keywords = ["best", "10xDeveloper"]
+tags = ["types", "brands", "tips&tricks"]
 description = "Brand your types to avoid stringly typed code in Typescript"
 showFullContent = false
 readingTime = false
 draft = true
 +++
 
-In this years NDC in Oslo i presented my lightning talk on branded types. To
-cement this in history forever I'll try converting it to a blog post as well.
-I do recommend watching the talk as my wit and humor might not come a cross that
-well in writing(??) (And also looking back at my talk, I guess some of my jokes
-did fall flat. Oh well, c'estlavie)
+In this years NDC in Oslo I presented my lightning talk on branded types. To
+cement this in history forever(!), I'll try converting it to a blog post as
+well. I do recommend watching the talk as my wit and humor might not come a
+cross that well in writing. But also looking back at my talk, I guess some
+of my jokes did fall flat. Oh well, c'est la vie
 
-If you just want to know what they are and how they can be used; read section.
-There is some storytelling to this
+If you just want to know what they are and how they can be used, just scroll
+down to where the code starts. 
+
+There is some preface to this, so hang tight
 
 ## Programming languages
 
 I've always loved programming languages. It how we humans, and more specifically
 programmers, interact with the computer. Its not buttons or sliders, it just
-text. Its actually a language! Which fits very well since we are talking about
-communication.
+text. Its actually a language(wow)! Which fits very well since we are talking
+about communication.
 
-And I've always regarded programming languages as something made by humans, and
-for humans. The same comes to writing the code: Its written by me, for another
+I've always regarded programming languages as something made by humans, for
+humans. The same comes to writing the code: Its written by me, for another
 human. I'm trying to model my mental model into the code, and when another human
-reads it, this mental models should appear in their head. Ugly code or an
-unreadable programming language is a bug in my mind.
+reads it, this mental models should manifest in their head. Ugly code or an
+unreadable programming language is a bug in my, not so, humble opinion.
 
-That brings us to "semantics". A great word if you want to sound smart. Because
-looking at the code each "word" or "token", it _means_ something. It has
-weights, it makes me feel something. It not just a list of characters, it means
-something. So lets have a look at the keyword "string", or more generally the
-concept "string". What semantics does it carry to the programmer?
+That brings us to "semantics"(A great word if you want to sound smart). Because
+looking at the code each "word" or "token", it _means_ something. It has a
+weight, it makes me feel something, because its not just a list of characters.
+So lets have a look at the keyword `string`, or more generally the concept
+"string". What semantics does it carry to the programmer?
 
 ## Strings!
 
-They're great! They are easy (not to be confused with "simple"LINK), they are
-readable! I mean, I learned to read in like 2. grade and its been very helpful
-when working with strings! Since you are reading this, I'm assuming you can too.
+They're great! They are easy (not to be confused with
+["simple"](https://www.youtube.com/watch?v=SxdOUGdseq4), they are readable! I
+mean, I learned to read in like seconds grade and its been very helpful when
+working with strings! Since you are reading this, I'm assuming you can too.
 
 They are also printable. I write my code, and add some `console.logs` here and
 there, run my code, and wow! The computer talks back?? This is crazy, but fun!
@@ -208,6 +210,11 @@ each every one of you. Maybe the dependency is internal in this case or it will
 be an external API. It happens and in many cases fixing it is not worth the
 rewrites across dozens of services. Its like the common norwegian saying "C'est la vie".
 
+## So how do we handle this?
+
+This is was our previous code. Trickling down and infesting our codebase is this
+stringly types url. For every function we need to validate if its a valid url,
+and if its relative or absolute
 
 ```ts
 // article.ts
@@ -238,19 +245,95 @@ function addQueryParam(url: string) {
   }
   // our logic
 }
+```
 
-// shareButton.ts
-function createShareableLink(
-  url: string,
-): string {
-  // validate your inputs
-  if (url === "") {
-    // handle invalid URL
-  }
-  if (isRelativeUrl(url)) {
-    // handle relative URL
-  }
-  if (isAbsoluteUrl(url)) {
-    // handle absolute URL
-  }
+We of course handle this by adding branded types. And by parsing earlier in our
+codebase we can narrow the types. Suddenly we don't have to handle all the cases
+anymore, and we can just trust the branded type. 
+
+```ts
+// article.ts
+function handleNavigation(url: RelativeUrl) {
+  // our logic
 }
+// externalLinkButton.ts
+function addQueryParam(url: AbsoluteUrl) {
+  // our logic
+}
+```
+
+
+## Conclusion
+
+So what have we learned? What do we gain from parsing, not validating and adding
+branded types to our strings?
+
+- Better typesafety 
+- No runtime cost
+- Pragmatic wrapper -- still works as the underlying type
+- Can be done manually or with a library (zod, io-ts)
+- Clearer semantics for reader (be that human or LLM)
+
+Here are some bonus brands that I like to use. This shows that it works for
+other types as well
+
+
+```ts
+declare const brand: unique symbol
+type Brand<Type, BrandName> = Type & { [brand]: BrandName }
+type UUID = Brand<string,"UUID">
+type Seconds = Brand<number, "Seconds">
+type Milliseconds = Brand<number, "Milliseconds">
+type Celcius = Brand<number, "Celcius">
+type Euro = Brand<number, "Euro">
+```
+
+### Bonus explanation
+
+```ts
+declare const brand: unique symbol
+type Brand<Type, BrandName> = Type & { [brand]: BrandName }
+```
+
+What does all this even mean?
+
+An easier to read example is this one
+
+```ts
+type Brand<Type, BrandName> = Type & { __brand: BrandName }
+```
+Here we are using just a normal key name "__brand". And this works great as
+well, and in practice just as well as the first example. The "issue" is that the
+same brand can easily be made in another file. We want a single source of truth,
+so it doesn't collide with other definitions and possibly other validation
+rules. So we need something that is totally unique... 
+
+What about symbols? Symbols are a fun feature in javascript that can be used to
+create "hidden" properties of an object and also avoid collisions 
+
+```
+const sym = Symbol("Whatever you want");
+// The description does not change anything
+const sym2 = Symbol("Whatever you want");
+sym === sym2 // false
+```
+
+But we don't care about the runtime, we just want it to exist in the typescript
+world. Maybe we can convince typescript that a unique symbol exists?
+
+The `declare` keyword in Typescript basically gives you the possibility to tell
+typescript "trust me this thing exist, just pretend". It will happily oblige.
+This is for example how `window` is typed in the browser.
+
+In the end we get this!
+
+```ts
+declare const brand: unique symbol
+type Brand<Type, BrandName> = Type & { [brand]: BrandName }
+```
+
+Using this symbol that we are telling Typescript exists, we use it as a dynamic
+key to create our object that we union with the original type. No other file can
+create this type, and it can impossibly exist at runtime. We are safe!! Hell
+yeah
+
