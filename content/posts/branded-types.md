@@ -119,6 +119,8 @@ const id = "1234" as UUID;
 
 ## Example
 
+![Wavy](/img/wavy.png)
+
 Lets have a look at a simple example (In the talk I have some fancy transitions,
 but I'm not sure how do it in my blog yet)
 
@@ -290,6 +292,8 @@ function addQueryParam(url: AbsoluteUrl) {
 ```
 
 ## Conclusion
+
+![Straight string](/img/straight_string.png)
 
 So what have we learned? What do we gain from parsing and adding
 branded types to our strings?
