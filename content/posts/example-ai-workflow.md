@@ -33,7 +33,7 @@ Enough fluff, I can talk about my specific setup in a different post.
 
 ## Context
 
-Recently, especially after becoming lead at my team, I've had to resort to all
+Recently, especially after becoming lead developer, I've had to resort to all
 types of diagrams to convey my thoughts. In the beginning I just used
 Excalidraw, but when making more structured diagrams, like sequence diagrams, I
 wanted something better so I resorted to
@@ -41,12 +41,14 @@ wanted something better so I resorted to
 syntax for creating diagrams, but it was text based and as a programmer I
 preferred that. But it was still quite tedious to create them.
 
+![Excalidraw example](/img/ai-blog-3.png)
+
 Hmm, isn't there some new and fancy entity that's incredibly good a producing lots of text?
 
 I first thought of my colleague Cristian, but I came to the conclusion that
 moderns LLMs is a better choice. I had a specific system I wanted to model that
 was already specced up in a markdown file (also done by AI), so I just included
-that file in my agents window (I use opencode), and let it generate a diagram
+that file in my agents window (I use `opencode`), and let it generate a diagram
 with correct syntax. 
 
 And voila! I copy and paste the output into the website and it looks very good!
