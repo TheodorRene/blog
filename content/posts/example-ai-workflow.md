@@ -1,5 +1,5 @@
 +++
-title = "Example Ai Workflow"
+title = "Creating ad toc tools with your agent - BYOA"
 date = "2026-03-12T15:10:33+01:00"
 author = "Theodor René Carlsen (Theo)"
 authorTwitter = "theodorc_" #do not include @
