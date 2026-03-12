@@ -63,17 +63,17 @@ First of all, lets use a open text format, lets use
 [Mermaid.js](https://mermaid.js.org/). Its supported many places (Most
 importantly Github), and supports many different types of diagrams. One of them
 being sequence diagrams. I had a look at their online editor, and was of course
-met by a popup: "Do you want the free version, or Mermaid Plus™ version for X$
+met by a popup: "Do you want the free version, or Mermaid Plus™ with AI for X$
 every month". (They have even changed domain from `mermaid.js.org` to
-`mermaid.ai`)
+`mermaid.ai`(!))
 
-I'm not hating on them trying to create a business on this diagram syntax and
-renderer, but I already have tons of credits from my jobs Github enterprise
-account, I want to use those credits! (Or my private subscriptions on personal
-projects).
+I'm not hating on them trying to create a business of this syntax and renderer,
+but I already have tons of credits from my jobs Github enterprise account, I
+want to use those credits! (Or my private subscriptions on personal projects).
 
-So I tasked my `opencode` instance to create this service for me instead. Let me
-see if I can find my original prompt.. (full transcript in the bottom of the post):
+So I tasked my `opencode` instance to create a locally running service for me
+instead. Let me see if I can find my original prompt.. (full transcript in the
+bottom of this post):
 
 
 ## Prompt
@@ -151,9 +151,9 @@ not limited to sequence diagrams, there are many different types.
 While using it I kept iterating:
 
 - Validation of syntax
-- More than one diagram at a time,
-- Right click to save to png,
-- Save image to clipboard.
+- More than one diagram at a time
+- Right click to save to png
+- Save image to clipboard
 
 Just a prompt away.
 
