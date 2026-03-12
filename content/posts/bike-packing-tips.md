@@ -94,5 +94,6 @@ Det er veldig hyggelig å se tilbake på.
 
 ## 9. Ta med dopapir
 
+## 10. Snakk med fremmede
 
 
