@@ -15,6 +15,8 @@ draft = false
 (Huffameg,lets see if I can write a full blog post without AI, just for the love of
 the game)
 
+## Preamble
+
 These last few months I've been diving deeper into AI tools, and more specific
 agentic tools. Mainly of my own interest, but also as preparation for my NDC
 lightning talk ["The fundamentals of agentic coding"](https://ndccopenhagen.com/agenda/lightning-talks-1-0raw/0he5mnt1kdo)
@@ -23,14 +25,20 @@ better. I've tried VSCode, codex(cli), copilot(cli), gemini(cli) and opencode. I
 hope to increase this list by the summer, especially interested in more GUI
 tools that makes it easier to switch between concurrent agent sessions.
 
+So when I created a really useful ad hoc tool for myself using these tools, I
+knew I wanted to share it.
+
 Enough fluff, I can talk about my specific setup in a different post.
+
+## Context
 
 Recently, especially after becoming lead at my team, I've had to resort to all
 types of diagrams to convey my thoughts. In the beginning I just used
 Excalidraw, but when making more structured diagrams, like sequence diagrams, I
-wanted something better so I resorted to sequencediagram.org. It has its own
-proprietary syntax for creating diagrams, but it was text based and as a
-programmer I preferred that. 
+wanted something better so I resorted to
+[sequencediagram.org](https://sequencediagram.org). It has its own proprietary
+syntax for creating diagrams, but it was text based and as a programmer I
+preferred that. 
 
 But it was still quite tedious to create them. Hmm, isn't there some new and
 fancy entity that's incredibly good a producing lots of text? I first thought of
@@ -38,12 +46,15 @@ my colleague Cristian, but I came to the conclusion that moderns LLMs is a
 better choice. I had a specific system I wanted to model that was already
 specced up in a markdown file (also done by AI), so I just included that file in
 my agents window (I use opencode), and let it generate a diagram with correct
-syntac. And voila! I copy and paste the output into the website and it looks
-very good!
+syntax. 
+
+And voila! I copy and paste the output into the website and it looks very good!
 
 And so I iterated, asked my agent to make changes, copied and pasted and so
 forth. All this copy and pasting felt like "code smell", or maybe like an "AI
 smell"(I'm coining that now). There has to be a better way!
+
+## The way
 
 First of all, lets use a open text format, lets use
 [Mermaid](https://mermaid.js.org/). Its supported many places (Most importantly
@@ -59,6 +70,8 @@ see if I can find my original prompt (full transcript in the bottom of the MVP):
 
 
 ## Prompt
+
+```
 Build a minimal TypeScript Node.js app for live previewing Mermaid files.
 
 Use:
@@ -80,44 +93,57 @@ Requirements:
 - Add scripts for `npm install` and `npm run dev`
 
 Please create the full implementation. 
-
+```
 
 ## ....
 
 Okay, I did spar back and forth with ChatGPT for a little bit first, but not
 much. Then I let it create a prompt for me.
 
-And it worked! Just how I wanted it. Now I just open opencode in the project
+And it worked! Just how I wanted it. Now I just open `opencode` in the project
 folder, refer to specific files or even let it read code and create diagrams
 while I have a live preview in my browser.
 
+```bash 
+> opencode
+oc> create a sequence diagram from this spec @../myproject/docs/spec.md
+```
+
 For me this was a great example of ad-hoc tools you can just make with very
-little effort and also lets you keep using your exisiting AI-subscription(Bring
-your Own Agent - BYOA).
+little effort and also lets you keep using your existing AI-subscription(Bring
+Your Own Agent - BYOA).
 
 Below you can see it created a diagram from my terrible attempt at creating my
-own blog in golang (I might revisit that at one poing with this modern AI tools.
-I would love some ad hoc specialized sections in my posts)
+own [blog enginge](https://github.com/theodorrene/goblog) in golang (I might
+revisit that at one point with these modern AI tools. I would love some ad hoc
+specialized sections in my blogposts)
 
 ![Diagram from goblog](/img/ai-blog-1.png)
 
 ## Iterating on the solution
 
-I've used it for a bit now, and even did a live demo for a team. While showing
+I've used it for a bit(2 days) now, and I did a live demo for a team. While showing
 its abilities, I noticed I was missing an export to PNG button. So I just
 prompted that into existence during the session(!). 
 
+```bash
+>opencode
+oc> add a export to png tool
+```
+(Proper grammar is not something I prioritize when talking to LLMs hehe)
+
 I later also noticed that I wanted to use this tools from any directory, so I
-was thinking that this might be a great use case for a MCP. So I told it to make
-it into an MCP server. Now I can open my agent tool from any project, and at any
-point just say "make a diagram from this implementation". And with mermaid you
-are not limited to sequencediagrams, there are many different types.
+was thinking that this might be a great use case for MCP. So I told it to make
+it into an MCP server. Now I can open my agent tool from any project, the
+service is added as a tool in the context, and at any point I can just say "make
+a diagram from this implementation we are discussing". And with Mermaid you are
+not limited to sequence diagrams, there are many different types.
 
-While using it I keep iterating, I wanted it to support more than one
-diagram at a time, i wanted right click to save to png, i wanted save to
-clipboard. All just a prompt away. 
+While using it I kept iterating: I wanted it to support more than one
+diagram at a time, I wanted right click to save to png, I wanted save to
+clipboard. Just a single prompt away.
 
-Below I prompted my agent to do the diagrams it as a sequence diagram instead.
+Below I prompted my agent to create the diagram as a sequence diagram instead.
 
 ![Iterating on the diagram](/img/ai-blog-2.png)
 
@@ -131,16 +157,18 @@ a year this post will seem ancient compared to the solutions that arise.
 
 Many want to know "How do effective programmers use AI these days?", and I think
 its almost impossible to create a tutorial on it. It changes so fast, and
-everyone has their own setup that they are comfortable with. Maybe I'll share
-mine some time. Please reach out if you want to talk agentic tools! I
-unfortunately have come to the conclusion that the only way forward is to
-embrace the tools, no matter how much I love the art of writing code.
+everyone has their own setup that they are comfortable with. Mine is at least.
+Maybe I'll share mine some time. Please reach out if you want to talk agentic
+tools! I have, unfortunately, come to the conclusion that the only way forward
+is to embrace the tools and models, no matter how much I love the art of writing
+code.
 
 (I thought of open sourcing the application and MCP, but a part of me is like,
-just build it yourself? Isn't that the future that we've been prophesied?)
+just build it yourself? I've shared my prompt; Isn't that the future that we've
+been prophesied?)
 
 
-### Full session from within opencode (with small redactions for IP reasons)
+### Full session from within `opencode` (with small redactions for IP reasons)
 
 # Mermaid previewer
 
