@@ -46,7 +46,7 @@ preferred that. But it was still quite tedious to create them.
 Hmm, isn't there some new and fancy entity that's incredibly good a producing lots of text?
 
 I first thought of my colleague Cristian, but I came to the conclusion that
-moderns LLMs is a better choice. I had a specific system I wanted to model that
+modern LLMs is a better choice. I had a specific system I wanted to model that
 was already specced up in a markdown file (also done by AI), so I just included
 that file in my agents window (I use `opencode`), and let it generate a diagram
 with correct syntax. 
