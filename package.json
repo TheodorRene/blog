@@ -7,18 +7,21 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "bash scripts/build-talks.sh && astro build",
-    "build:blog": "astro build",
+    "build": "bun run build:og && bash scripts/build-talks.sh && astro build",
+    "build:blog": "bun run build:og && astro build",
+    "build:og": "node scripts/generate-og-images.mjs",
     "build:talks": "bash scripts/build-talks.sh",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.18",
+    "@resvg/resvg-js": "^2.6.2",
     "@webtui/css": "^0.1.7",
     "@webtui/theme-catppuccin": "^0.0.4",
     "@webtui/theme-gruvbox": "^0.0.2",
     "astro": "^6.1.5",
+    "gray-matter": "^4.0.3",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-slug": "^6.0.0"
   }

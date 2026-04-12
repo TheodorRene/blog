@@ -6,6 +6,9 @@ dist/
 # built talks (generated during build)
 public/talks/
 
+# generated social cards
+public/og/
+
 # talks node_modules
 talks/*/node_modules/
 

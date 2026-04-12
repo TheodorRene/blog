@@ -3,11 +3,13 @@ interface Props {
   title: string;
   description?: string;
   image?: string;
+  ogType?: 'website' | 'article';
 }
 
-const { title, description = "theodorc's blog", image } = Astro.props;
+const { title, description = "theodorc's blog", image = '/og/default.png', ogType = 'website' } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const ogImage = image ? new URL(image, Astro.site).href : new URL('/img/favicon/orange.png', Astro.site).href;
+const ogImage = new URL(image, Astro.site).href;
+const metaDescription = description.trim() || 'Terminal-flavored blog posts and conference talks by theodorc.';
 
 import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
@@ -18,22 +20,24 @@ import '../styles/global.css';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={description} />
+    <meta name="description" content={metaDescription} />
     <link rel="canonical" href={canonicalURL} />
     <link rel="icon" type="image/png" href="/img/favicon/orange.png" />
     <link rel="alternate" type="application/rss+xml" title="theodorc" href="/rss.xml" />
 
     <!-- Open Graph -->
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <meta property="og:description" content={metaDescription} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
     <!-- Twitter -->
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:description" content={metaDescription} />
     <meta name="twitter:image" content={ogImage} />
 
     <ClientRouter />

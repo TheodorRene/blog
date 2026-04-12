@@ -21,7 +21,12 @@ function formatDate(date: Date): string {
 }
 ---
 
-<Base title={`${post.data.title} | theodorc`} description={post.data.description}>
+<Base
+  title={`${post.data.title} | theodorc`}
+  description={post.data.description}
+  image={`/og/posts/${post.id}.png`}
+  ogType="article"
+>
   <article>
     <header style="margin-bottom: 2lh;">
       <h1>{post.data.title}</h1>
