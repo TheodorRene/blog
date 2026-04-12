@@ -1,0 +1,23 @@
+{
+  "name": "blog3",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "bash scripts/build-talks.sh && astro build",
+    "build:blog": "astro build",
+    "build:talks": "bash scripts/build-talks.sh",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/rss": "^4.0.18",
+    "@webtui/css": "^0.1.7",
+    "@webtui/theme-catppuccin": "^0.0.4",
+    "@webtui/theme-gruvbox": "^0.0.2",
+    "astro": "^6.1.5"
+  }
+}

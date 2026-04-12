@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+
+const posts = (await getCollection('posts', ({ data }) => {
+  return import.meta.env.PROD ? data.draft !== true : true;
+})).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+function formatDate(date: Date): string {
+  return date.toISOString().slice(0, 10);
+}
+---
+
+<Base title="theodorc">
+  <h1>~/posts</h1>
+  <br />
+  <ul class="post-list">
+    {posts.map((post) => (
+      <li>
+        <a href={`/posts/${post.id}`} style="display: flex; gap: 2ch; text-decoration: none; padding: 0.25lh 0;">
+          <span style="color: var(--overlay1); white-space: nowrap;">{formatDate(post.data.date)}</span>
+          <span style="color: var(--text);">{post.data.title}</span>
+          {post.data.tags.length > 0 && (
+            <span style="color: var(--overlay0); white-space: nowrap; margin-left: auto;">
+              [{post.data.tags.join(', ')}]
+            </span>
+          )}
+        </a>
+      </li>
+    ))}
+  </ul>
+</Base>

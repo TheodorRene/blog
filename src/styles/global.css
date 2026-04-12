@@ -1,0 +1,124 @@
+@layer base, utils, components;
+
+@import '@webtui/css/base.css';
+@import '@webtui/theme-gruvbox';
+
+/* Utils */
+@import '@webtui/css/utils/box.css';
+
+/* Components */
+@import '@webtui/css/components/badge.css';
+@import '@webtui/css/components/button.css';
+@import '@webtui/css/components/separator.css';
+@import '@webtui/css/components/typography.css';
+@import '@webtui/css/components/view.css';
+
+@layer base {
+  /* ── Gruvbox → Catppuccin-style variable aliases ── */
+  :root {
+    --text: var(--foreground0);
+    --subtext0: var(--foreground2);
+    --overlay0: var(--gb-dark-fg4);
+    --overlay1: var(--gb-dark-gray);
+    --blue: var(--gb-blue);
+    --green: var(--gb-green);
+  }
+
+  body {
+    max-width: 80ch;
+    margin: 0 auto;
+    padding: 1ch 2ch;
+  }
+
+  a {
+    color: var(--blue);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* ── Blog index: suppress WebTUI list markers ── */
+  .post-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .post-list li {
+    padding: 0;
+  }
+
+  .post-list li::before,
+  .post-list li::marker {
+    content: none;
+    display: none;
+  }
+
+  /* ── Typography block: vertical rhythm ── */
+  [is-~="typography-block"] > * + * {
+    margin-top: 1lh;
+  }
+
+  [is-~="typography-block"] > * + h1,
+  [is-~="typography-block"] > * + h2 {
+    margin-top: 2lh;
+  }
+
+  [is-~="typography-block"] > * + h3,
+  [is-~="typography-block"] > * + h4 {
+    margin-top: 1.5lh;
+  }
+
+  [is-~="typography-block"] h1 + *,
+  [is-~="typography-block"] h2 + *,
+  [is-~="typography-block"] h3 + *,
+  [is-~="typography-block"] h4 + * {
+    margin-top: 0.5lh;
+  }
+
+  /* ── Images: constrain to container ── */
+  [is-~="typography-block"] img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-top: 1lh;
+    margin-bottom: 1lh;
+  }
+
+  /* ── Code blocks: spacious, readable ── */
+  [is-~="typography-block"] figure,
+  [is-~="typography-block"] pre {
+    background: transparent !important;
+  }
+
+  [is-~="typography-block"] pre {
+    margin-top: 1lh;
+    margin-bottom: 1lh;
+    padding: 1.5em 2ch;
+    overflow-x: auto;
+    font-size: 1.05em;
+    line-height: 1.6;
+    border: 1px solid var(--overlay0);
+    border-radius: 4px;
+  }
+
+  [is-~="typography-block"] pre code {
+    font-size: inherit;
+    line-height: inherit;
+    background: transparent !important;
+  }
+
+  /* ── Blockquotes ── */
+  [is-~="typography-block"] blockquote {
+    margin-top: 1lh;
+    margin-bottom: 1lh;
+  }
+
+  /* ── Lists inside typography blocks ── */
+  [is-~="typography-block"] ul,
+  [is-~="typography-block"] ol {
+    margin-top: 1lh;
+    margin-bottom: 1lh;
+  }
+}

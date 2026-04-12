@@ -1,0 +1,11 @@
+[
+  {
+    "title": "Brand your types!",
+    "date": "2024-06-12",
+    "event": "NDC Oslo 2024",
+    "description": "A lightning talk on branded types in TypeScript - making your types more expressive and avoiding stringly typed code.",
+    "slidesUrl": "/talks/brand-your-types/",
+    "videoUrl": "https://www.youtube.com/watch?v=yahbJV16GmE",
+    "tags": ["TypeScript", "types", "NDC"]
+  }
+]

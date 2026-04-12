@@ -1,0 +1,46 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "theodorc's blog" } = Astro.props;
+
+import '../styles/global.css';
+---
+
+<!doctype html>
+<html lang="en" data-webtui-theme="gruvbox-dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="alternate" type="application/rss+xml" title="theodorc" href="/rss.xml" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header>
+      <nav style="display: flex; justify-content: space-between; align-items: center; padding: 1ch 0;">
+        <a href="/" style="font-weight: bold; color: var(--green);">theodorc</a>
+        <div style="display: flex; gap: 2ch;">
+          <a href="/">blog</a>
+          <a href="/talks">talks</a>
+          <a href="https://github.com/theodorrene" target="_blank" rel="noopener">github</a>
+          <a href="https://www.linkedin.com/in/theodorcarlsen/" target="_blank" rel="noopener">linkedin</a>
+        </div>
+      </nav>
+      <hr data-webtui="separator" />
+    </header>
+
+    <main style="padding: 2ch 0;">
+      <slot />
+    </main>
+
+    <footer style="padding: 1ch 0;">
+      <hr data-webtui="separator" />
+      <p style="color: var(--subtext0); padding-top: 1ch;">
+        &copy; {new Date().getFullYear()} theodorc
+      </p>
+    </footer>
+  </body>
+</html>
