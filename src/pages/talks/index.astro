@@ -5,21 +5,20 @@ import talks from '../../data/talks.json';
 
 <Base title="talks | theodorc" description="Conference talks and presentations by theodorc">
   <h1>~/talks</h1>
-  <br />
-  <ul style="list-style: none; padding: 0;">
+  <ul class="talk-list">
     {talks.map((talk) => (
-      <li style="margin-bottom: 2lh; padding: 1ch 0;">
-        <div style="display: flex; gap: 2ch; align-items: baseline;">
-          <span style="color: var(--overlay1); white-space: nowrap;">{talk.date}</span>
-          <span style="color: var(--green); font-weight: bold;">{talk.title}</span>
+      <li class="talk-list-item">
+        <div class="talk-list-heading">
+          <span class="talk-list-date">{talk.date}</span>
+          <span class="talk-list-title">{talk.title}</span>
         </div>
-        <p style="color: var(--subtext0); margin: 0.5lh 0; padding-left: 14ch;">
+        <p class="talk-list-event">
           {talk.event}
         </p>
-        <p is-="typography-block" style="padding-left: 14ch;">
+        <p is-="typography-block" class="talk-list-description">
           {talk.description}
         </p>
-        <div style="display: flex; gap: 2ch; padding-left: 14ch; margin-top: 0.5lh;">
+        <div class="talk-list-links">
           {talk.slidesUrl && (
             <a href={talk.slidesUrl}>[slides]</a>
           )}

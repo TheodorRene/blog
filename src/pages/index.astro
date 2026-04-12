@@ -13,15 +13,14 @@ function formatDate(date: Date): string {
 
 <Base title="theodorc">
   <h1>~/posts</h1>
-  <br />
   <ul class="post-list">
     {posts.map((post) => (
       <li>
-        <a href={`/posts/${post.id}`} style="display: flex; gap: 2ch; text-decoration: none; padding: 0.25lh 0;">
-          <span style="color: var(--overlay1); white-space: nowrap;">{formatDate(post.data.date)}</span>
-          <span style="color: var(--text);">{post.data.title}</span>
+        <a href={`/posts/${post.id}`} class="post-list-link">
+          <span class="post-list-date">{formatDate(post.data.date)}</span>
+          <span class="post-list-title">{post.data.title}</span>
           {post.data.tags.length > 0 && (
-            <span style="color: var(--overlay0); white-space: nowrap; margin-left: auto;">
+            <span class="post-list-tags">
               [{post.data.tags.join(', ')}]
             </span>
           )}

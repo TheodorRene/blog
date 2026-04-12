@@ -26,6 +26,8 @@
   }
 
   body {
+    box-sizing: border-box;
+    width: 100%;
     max-width: 80ch;
     margin: 0 auto;
     padding: 1ch 2ch;
@@ -73,10 +75,45 @@
     outline-offset: 2px;
   }
 
+  .site-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2ch;
+    padding: 1ch 0;
+  }
+
+  .site-brand {
+    color: var(--green);
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+
+  .site-nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.5lh 2ch;
+  }
+
+  .site-main {
+    padding: 2ch 0;
+  }
+
+  .site-footer {
+    padding: 1ch 0;
+  }
+
+  .site-footer-copy {
+    color: var(--subtext0);
+    padding-top: 1ch;
+  }
+
   /* ── Blog index: suppress WebTUI list markers ── */
   .post-list {
     list-style: none;
     padding: 0;
+    margin-top: 1lh;
   }
 
   .post-list li {
@@ -87,6 +124,97 @@
   .post-list li::marker {
     content: none;
     display: none;
+  }
+
+  .post-list-link {
+    display: grid;
+    grid-template-columns: 11ch minmax(0, 1fr) auto;
+    align-items: start;
+    column-gap: 2ch;
+    row-gap: 0.25lh;
+    padding: 0.5lh 0;
+    text-decoration: none;
+  }
+
+  .post-list-date {
+    color: var(--overlay1);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .post-list-title {
+    color: var(--text);
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .post-list-tags {
+    color: var(--overlay0);
+    text-align: right;
+    overflow-wrap: anywhere;
+  }
+
+  .talk-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1lh;
+  }
+
+  .talk-list-item {
+    margin-bottom: 2lh;
+    padding: 1ch 0;
+  }
+
+  .talk-list-heading {
+    display: grid;
+    grid-template-columns: 11ch minmax(0, 1fr);
+    align-items: baseline;
+    column-gap: 2ch;
+    row-gap: 0.25lh;
+  }
+
+  .talk-list-date {
+    color: var(--overlay1);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .talk-list-title {
+    color: var(--green);
+    font-weight: bold;
+    overflow-wrap: anywhere;
+  }
+
+  .talk-list-event {
+    color: var(--subtext0);
+    margin: 0.5lh 0;
+    padding-left: 14ch;
+  }
+
+  .talk-list-description {
+    padding-left: 14ch;
+  }
+
+  .talk-list-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5lh 2ch;
+    padding-left: 14ch;
+    margin-top: 0.5lh;
+  }
+
+  .post-header {
+    margin-bottom: 2lh;
+  }
+
+  .post-meta {
+    color: var(--overlay1);
+    margin-top: 0.5lh;
+    overflow-wrap: anywhere;
+  }
+
+  .post-backlink {
+    margin-top: 1lh;
   }
 
   /* ── Typography block: vertical rhythm ── */
@@ -181,6 +309,73 @@
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .site-nav {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .site-nav-links {
+      justify-content: flex-start;
+      gap: 0.5lh 1.5ch;
+    }
+
+    .post-list-link {
+      grid-template-columns: 11ch minmax(0, 1fr);
+    }
+
+    .post-list-tags {
+      grid-column: 2;
+      text-align: left;
+    }
+  }
+
+  @media (max-width: 768px) {
+    body {
+      padding-inline: 1ch;
+    }
+
+    .site-main {
+      padding: 1.5ch 0;
+    }
+
+    .post-list-link,
+    .talk-list-heading {
+      grid-template-columns: 1fr;
+    }
+
+    .post-list-date,
+    .post-list-tags,
+    .talk-list-date {
+      white-space: normal;
+    }
+
+    .post-list-tags {
+      grid-column: auto;
+      text-align: left;
+    }
+
+    .talk-list-event,
+    .talk-list-description,
+    .talk-list-links {
+      padding-left: 0;
+    }
+
+    .post-meta {
+      overflow-wrap: anywhere;
+    }
+
+    [is-~="typography-block"] pre {
+      padding: 0.75em 0.5ch;
+      font-size: 0.82rem;
+      line-height: 1.4;
+    }
+
+    [is-~="typography-block"] pre code {
+      font-size: inherit;
     }
   }
 }
