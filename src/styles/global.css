@@ -16,6 +16,7 @@
 @layer base {
   /* ── Gruvbox → Catppuccin-style variable aliases ── */
   :root {
+    color-scheme: dark;
     --text: var(--foreground0);
     --subtext0: var(--foreground2);
     --overlay0: var(--gb-dark-fg4);
@@ -28,6 +29,34 @@
     max-width: 80ch;
     margin: 0 auto;
     padding: 1ch 2ch;
+    text-rendering: optimizeLegibility;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  p,
+  li,
+  blockquote {
+    text-wrap: pretty;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+    scroll-margin-top: 2lh;
+  }
+
+  :target {
+    scroll-margin-top: 2lh;
+  }
+
+  ::selection {
+    background: var(--overlay0);
+    color: var(--text);
   }
 
   a {
@@ -37,6 +66,11 @@
 
   a:hover {
     text-decoration: underline;
+  }
+
+  a:focus-visible {
+    outline: 1px solid var(--blue);
+    outline-offset: 2px;
   }
 
   /* ── Blog index: suppress WebTUI list markers ── */
@@ -120,5 +154,33 @@
   [is-~="typography-block"] ol {
     margin-top: 1lh;
     margin-bottom: 1lh;
+  }
+
+  [is-~="typography-block"] :is(h1, h2, h3, h4, h5, h6):target {
+    color: var(--green);
+  }
+
+  [is-~="typography-block"] .heading-anchor {
+    margin-left: 0.5ch;
+    color: var(--overlay1);
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 120ms ease;
+  }
+
+  [is-~="typography-block"] :is(h1, h2, h3, h4, h5, h6):hover .heading-anchor,
+  [is-~="typography-block"] :is(h1, h2, h3, h4, h5, h6):focus-within .heading-anchor,
+  [is-~="typography-block"] :is(h1, h2, h3, h4, h5, h6):target .heading-anchor {
+    opacity: 1;
+  }
+
+  [is-~="typography-block"] .heading-anchor:hover {
+    color: var(--blue);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 }

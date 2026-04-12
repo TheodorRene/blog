@@ -18,6 +18,8 @@
     "@webtui/css": "^0.1.7",
     "@webtui/theme-catppuccin": "^0.0.4",
     "@webtui/theme-gruvbox": "^0.0.2",
-    "astro": "^6.1.5"
+    "astro": "^6.1.5",
+    "rehype-autolink-headings": "^7.1.0",
+    "rehype-slug": "^6.0.0"
   }
 }
