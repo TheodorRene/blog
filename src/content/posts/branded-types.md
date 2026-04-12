@@ -1,6 +1,6 @@
 ---
 title: "Brand your types!"
-date: "2024-07-21T17:36:40+01:00"
+date: "2025-07-21T17:36:40+01:00"
 description: "Brand your types to avoid stringly typed code"
 tags: ["types", "brands", "tips&tricks"]
 ---
@@ -360,4 +360,3 @@ type Brand<Type, BrandName> = Type & { [brand]: BrandName }
 Using this symbol we are telling Typescript exists, we use it as a dynamic key
 to create our object that we union with the original type. No other file can
 create this type, and it can't possibly exist at runtime. We are safe!!
-
