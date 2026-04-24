@@ -11,6 +11,7 @@
     "build:blog": "bun run build:og && astro build",
     "build:og": "node scripts/generate-og-images.mjs",
     "build:talks": "bash scripts/build-talks.sh",
+    "new-post": "bun scripts/new-post.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },

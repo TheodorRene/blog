@@ -50,6 +50,12 @@ The build process:
 
 Markdown files in `src/content/posts/`. Frontmatter:
 
+```bash
+bun run new-post "Post Title"
+```
+
+This creates a draft post in `src/content/posts/` with a slug based on the title and prefilled frontmatter.
+
 ```yaml
 ---
 title: "Post Title"
