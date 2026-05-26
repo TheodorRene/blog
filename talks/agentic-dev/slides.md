@@ -1,6 +1,6 @@
 ---
 theme: apple-basic
-title: The Fundamentals of Agentic Coding (AKA Vibe Coding)
+title: The Fundamentals of Agentic Coding
 drawings:
   persist: false
 mdc: true
@@ -25,44 +25,8 @@ image: 'images/front.png'
 
 <div class="absolute bottom-10 border-2 border-white/20 bg-white/10 backdrop-blur-sm text-white p-4 rounded-lg">
   <h1>The Fundamentals of Agentic Coding</h1>
-  <p>AKA Vibe Coding — Theodor René Carlsen</p>
+  <p>Theodor René Carlsen</p>
 </div>
-
----
-layout: statement
----
-
-# AI has changed how we write code.
-
-Whether we like it or not.
-
----
-layout: intro-image-right
-image: 'images/scope.png'
----
-
-<!-- TODO: Replace images/scope.png with something illustrating focus/clarity -->
-
-# This talk is NOT about
-
-<v-clicks>
-
-- Security or privacy concerns
-- How to get access to models
-- Which tool is the best
-- Replacing you
-
-</v-clicks>
-
-<v-click>
-
-# It IS about
-
-- What these tools can and cannot do
-- How the workflow has actually changed
-- What is hype, and what is worth your time
-
-</v-click>
 
 ---
 layout: intro-image-right
@@ -73,22 +37,49 @@ image: 'images/evolution.png'
 
 # How we got here
 
+AI has changed how we write code — whether we like it or not.
+
 <v-clicks>
 
-- Stack Overflow copy/paste
-- ChatGPT generation + copy/paste
-- Copilot autocomplete in the editor
-- Fully embedded agents in IDEs
-- CLI / TUI agents orchestrating across files
-- Multiple agents running concurrently
+- **~2008** — Stack Overflow copy/paste
+- **2021** — Copilot autocomplete in the editor
+- **2022** — ChatGPT generation + copy/paste
+- **2024** — Fully embedded agents in IDEs
+- **2025** — CLI / TUI agents orchestrating across files
+- **2026** — Multiple agents running concurrently
 
 </v-clicks>
 
 ---
-layout: statement
+layout: image-right
+image: 'images/players.png'
 ---
 
-# So what even *is* agentic coding?
+<!-- TODO: Replace images/players.png with something showing three stacked layers -->
+
+# The pieces
+
+When people say "AI coding tools", they usually mean three different things mashed together.
+
+<v-clicks>
+
+- **Models** — the brain: GPT, Claude, Gemini
+- **Suppliers** — where you get the model: OpenAI, Anthropic, GitHub Models, OpenRouter, or Ollama on your own machine
+- **Harnesses** — what lets the model actually do things: Claude Code, Cursor, OpenCode, Codex, Antigravity, Aider, Cline, Continue, Zed, Goose, Pi, and on, and on...
+
+</v-clicks>
+
+<v-click>
+
+Same model, different harness. Same harness, different model. There is no single correct combination.
+
+</v-click>
+
+<v-click>
+
+The next two slides go through the model and the harness in turn.
+
+</v-click>
 
 ---
 layout: intro-image-right
@@ -97,7 +88,7 @@ image: 'images/text.png'
 
 <!-- TODO: Replace images/text.png with something abstract — raw text, tokens, a black box -->
 
-# It's just text
+# The model: it's just text
 
 At its core, a model is a black box that is very good at one thing.
 
@@ -128,9 +119,9 @@ image: 'images/harness.png'
 
 <!-- TODO: Replace images/harness.png with something showing scaffolding, a cockpit, or a control harness -->
 
-# But it has a harness
+# The harness: what makes it act
 
-The model itself is just text in, text out. The harness is what makes it an agent.
+The model itself is just text in, text out. The harness wraps it with tools.
 
 <v-clicks>
 
@@ -144,94 +135,7 @@ The model itself is just text in, text out. The harness is what makes it an agen
 
 <v-click>
 
-"Vibe coding", "agentic coding" — the terms blur together these days. What they all describe is the same thing: a model with enough tooling around it to take real actions on your behalf.
-
-</v-click>
-
----
-layout: image-right
-image: 'images/players.png'
----
-
-<!-- TODO: Replace images/players.png with a landscape/ecosystem image -->
-
-# Players in the field
-
-Not a product comparison — just context.
-
-<v-clicks>
-
-- **Foundation models** — OpenAI, Anthropic, Google, etc. The brains.
-- **IDE-embedded agents** — Copilot, Cursor, Windsurf. Lowest friction to get started.
-- **CLI / TUI agents** — OpenCode, Claude Code, Aider. More control, scriptable, composable.
-
-</v-clicks>
-
-<v-click>
-
-The space is moving fast. Specific tools matter less than understanding the category.
-
-</v-click>
-
----
-layout: intro-image-right
-image: 'images/feedback.png'
----
-
-<!-- TODO: Replace images/feedback.png with something showing loops/iteration -->
-
-# Fast feedback loops
-
-This is where autonomy actually emerges.
-
-<v-clicks>
-
-- The agent runs type checks, tests, linting
-- It sees the output and corrects itself
-- It iterates without waiting for you
-- You come back to a result, not a process
-
-</v-clicks>
-
-<v-click>
-
-Without feedback loops, an agent is just a smarter autocomplete.
-
-</v-click>
-
----
-layout: two-cols
-layoutClass: gap-12
----
-
-# Agents working on themselves
-
-When an agent has end-to-end tooling integration, it can close the loop entirely.
-
-<v-clicks>
-
-- Write code → run tests → read failures → fix → repeat
-- No manual intervention at each step
-- The model is reasoning about its own output
-
-</v-clicks>
-
-::right::
-
-# Your role changes
-
-<v-clicks>
-
-- You no longer supervise every step
-- You define the goal and constraints
-- You review the outcome
-- You course-correct when the context was wrong
-
-</v-clicks>
-
-<v-click>
-
-The bottleneck moves from *writing* to *reviewing and directing*.
+A model with a harness around it is what takes real actions on your behalf.
 
 </v-click>
 
@@ -244,19 +148,19 @@ image: 'images/context.png'
 
 # Context engineering
 
-The developer skill of the era.
+The skill that actually matters.
 
 <v-clicks>
 
-- Agents are smart enough to act autonomously
-- But they only know what you give them
-- Missing or ambiguous context leads to wrong output — just like with humans
+- The agent only knows what you give it
+- Missing context leads to wrong output — same as with a new colleague
+- Good context is concrete: paths, examples, constraints, what *not* to do
 
 </v-clicks>
 
 <v-click>
 
-The quality of your instructions determines the quality of the result.
+You will learn this by using a tool on real work. Not by reading about it.
 
 </v-click>
 
@@ -264,15 +168,13 @@ The quality of your instructions determines the quality of the result.
 layout: default
 ---
 
-# Standards & abstractions
-
-Attempts at making context portable and reusable.
+# AGENTS.md, CLAUDE.md, Skills
 
 <v-clicks>
 
-- `AGENTS.md` / `CLAUDE.md` / rules files — project-level instructions the agent reads before acting
-- "Skills" — reusable workflow snippets
-- MCP (Model Context Protocol) — a standard for connecting tools to agents
+You have probably heard of these. They sound like a new format you need to learn.
+
+They are markdown files the harness reads before it acts — project context, commands, conventions, the things you would otherwise repeat in every prompt.
 
 </v-clicks>
 
@@ -294,7 +196,7 @@ Attempts at making context portable and reusable.
 
 <v-click>
 
-The long-term value of specific formats is unclear. What matters is: **constraints + context**, not which file you put them in.
+Nothing magical. Plain text, in a file the agent happens to read.
 
 </v-click>
 
@@ -303,33 +205,67 @@ layout: two-cols
 layoutClass: gap-12
 ---
 
-# What actually matters
+# Feedback loops
+
+Where the autonomy actually comes from.
 
 <v-clicks>
 
-- Fast feedback loops in your project (tests, type checks, linting that actually run)
-- Clear, low-ambiguity context for the agent
-- A codebase the agent can navigate and modify safely
-- Your own ability to review and course-correct
-
-</v-clicks>
-
-::right::
-
-# What matters less
-
-<v-clicks>
-
-- Which specific agent tool you use
-- Whether you use MCP or a bash interface
-- Perfectly formatted `AGENTS.md` files
-- Keeping up with every new release
+- The agent runs your tests, type checks, linters
+- It reads the output and corrects itself
+- It loops without waiting for you
 
 </v-clicks>
 
 <v-click>
 
-The fundamentals are stable even when the tools aren't.
+Without these, an agent is glorified autocomplete.
+
+</v-click>
+
+::right::
+
+# Your role shifts
+
+<v-clicks>
+
+- You set the goal and the constraints
+- You review the outcome
+- You step in when the context was wrong
+
+</v-clicks>
+
+<v-click>
+
+From writing every line to directing and reviewing.
+
+</v-click>
+
+---
+layout: default
+---
+
+# A guess at where this is going
+
+<v-clicks>
+
+If agentic coding sticks around — and that is an *if* — the interesting direction is harnesses you can open up and modify.
+
+- See what the model actually sees
+- See where your tokens go
+- Keep the primitives you need, drop the ones you don't
+
+</v-clicks>
+
+<v-click>
+
+Claude Code is closed. OpenCode is more open. [Pi](https://pi.dev) goes further: minimal by design, you assemble the rest.
+
+</v-click>
+
+<v-click>
+
+Not a recommendation. A direction worth watching.
 
 </v-click>
 
@@ -340,21 +276,23 @@ image: 'images/final.png'
 
 <!-- TODO: Replace images/final.png with a closing/outro image -->
 
-# The Fundamentals of Agentic Coding
+# Takeaway
 
 <v-clicks>
 
-- The workflow has genuinely changed — the evolution is real
-- Agentic = the model acts, observes, and loops
-- Feedback loops are where autonomy emerges
-- Context engineering is your most important new skill
-- The fundamentals matter more than the tools
+- A model is text in, text out. A harness is what makes it act.
+- Model, harness, supplier — three layers, mix and match.
+- Context is what you bring. Feedback loops are what your project provides.
+- The tools will keep changing. The fundamentals will not.
 
 </v-clicks>
 
-<br />
-<br />
-<br />
+<v-click>
+
+Pick a tool. Use it on a real project. Learn by steering it.
+
+</v-click>
+
 <br />
 
 [blog.theodorc.no](https://blog.theodorc.no) · [@theodorc.no on Bluesky](https://bsky.app/profile/theodorc.no)
