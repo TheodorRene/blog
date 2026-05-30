@@ -5,69 +5,70 @@ drawings:
   persist: false
 mdc: true
 favicon: 'images/favicon-32x32.png'
+fonts:
+  sans: 'Zilla Slab'
+  serif: 'Zilla Slab'
+  weights: '400,600,700'
 transition: slide-left
-layout: intro-image
-image: 'images/front.png'
+layout: center
+class: cover-video
 ---
 
-<!-- TODO: Replace images/front.png with a cover image -->
+<video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover">
+  <source src="/images/agentic_front_loop.mp4" type="video/mp4" />
+</video>
 
-<div class="absolute top-10 left-10">
-  <span class="font-700">NDC 2026 CPH</span>
+<div class="absolute top-10 left-10 z-10">
+  <span class="font-700 text-white">NDC 2026 CPH</span>
 </div>
 
-<div class="absolute bottom-10 right-10">
+<div class="absolute bottom-10 right-10 z-10 text-white">
 
 📙 [blog.theodorc.no](https://blog.theodorc.no)
 🦋 [@theodorc.no](https://bsky.app/profile/theodorc.no)
 
 </div>
 
-<div class="absolute bottom-10 border-2 border-white/20 bg-white/10 backdrop-blur-sm text-white p-4 rounded-lg">
-  <h1>The Fundamentals of Agentic Coding</h1>
-  <p>Theodor René Carlsen</p>
+<div class="absolute bottom-10 left-10 z-10 border-2 border-white/20 bg-white/10 backdrop-blur-sm text-white p-4 rounded-lg">
+  <p class="font-700 text-xl">Theodor René Carlsen</p>
 </div>
 
+<style>
+.cover-video {
+  padding: 0 !important;
+}
+.cover-video a {
+  color: #fff;
+}
+</style>
+
 ---
-layout: intro-image-right
-image: 'images/evolution.png'
+layout: statement
 ---
 
-<!-- TODO: Replace images/evolution.png with something showing progression/timeline -->
-
-# How we got here
-
-AI has changed how we write code — whether we like it or not.
-
-<v-clicks>
-
-- **~2008** — Stack Overflow copy/paste
-- **2021** — Copilot autocomplete in the editor
-- **2022** — ChatGPT generation + copy/paste
-- **2024** — Fully embedded agents in IDEs
-- **2025** — CLI / TUI agents orchestrating across files
-- **2026** — Multiple agents running concurrently
-
-</v-clicks>
+# You're not behind.
 
 ---
 layout: image-right
-image: 'images/players.png'
+image: 'images/agentic-images/agents_around_computer_16_9.png'
 ---
 
-<!-- TODO: Replace images/players.png with something showing three stacked layers -->
+# It's actually three things
 
-# The pieces
-
-When people say "AI coding tools", they usually mean three different things mashed together.
+When people say "AI coding tools", they usually mean three separate things welded together.
 
 <v-clicks>
 
-- **Models** — the brain: GPT, Claude, Gemini
-- **Suppliers** — where you get the model: OpenAI, Anthropic, GitHub Models, OpenRouter, or Ollama on your own machine
-- **Harnesses** — what lets the model actually do things: Claude Code, Cursor, OpenCode, Codex, Antigravity, Aider, Cline, Continue, Zed, Goose, Pi, and on, and on...
+- **Models** (the brain): GPT, Claude, Gemini
+- **Harnesses** (what lets the model act): Claude Code, Cursor, OpenCode, Codex, Antigravity, Aider, Cline, Continue, Zed, Goose, Pi, and on, and on...
 
 </v-clicks>
+
+<v-click>
+
+(Plus the **supplier**: where you get the model. OpenAI, GitHub Models, OpenRouter, or Ollama on your own machine. Same model, many places, different price and privacy.)
+
+</v-click>
 
 <v-click>
 
@@ -77,16 +78,14 @@ Same model, different harness. Same harness, different model. There is no single
 
 <v-click>
 
-The next two slides go through the model and the harness in turn.
+Agent = model + harness
 
 </v-click>
 
 ---
 layout: intro-image-right
-image: 'images/text.png'
+image: 'images/agentic-images/a_small_being_2_3_format.png'
 ---
-
-<!-- TODO: Replace images/text.png with something abstract — raw text, tokens, a black box -->
 
 # The model: it's just text
 
@@ -108,16 +107,14 @@ Your prompt is text. The code it writes is text. The error message it reads is t
 
 <v-click>
 
-Understanding this removes a lot of the magic — and a lot of the fear.
+Understanding this removes a lot of the magic, and a lot of the fear.
 
 </v-click>
 
 ---
 layout: intro-image-right
-image: 'images/harness.png'
+image: 'images/agentic-images/ai_creature_vibe_16_9.png'
 ---
-
-<!-- TODO: Replace images/harness.png with something showing scaffolding, a cockpit, or a control harness -->
 
 # The harness: what makes it act
 
@@ -129,7 +126,7 @@ The model itself is just text in, text out. The harness wraps it with tools.
 - Run shell commands
 - Search the codebase
 - Call external APIs
-- Loop — act, observe, repeat
+- Loop: act, observe, repeat
 
 </v-clicks>
 
@@ -140,11 +137,82 @@ A model with a harness around it is what takes real actions on your behalf.
 </v-click>
 
 ---
-layout: intro-image-right
-image: 'images/context.png'
+layout: two-cols
+layoutClass: gap-8
 ---
 
-<!-- TODO: Replace images/context.png with something about information/signal -->
+# A tool call, up close
+
+You describe a tool. The model is trained to ask for it, as JSON.
+
+```ts {all|3-17|19-23|25-26}
+const openai = new OpenAI()
+
+const tools = [{
+  type: "function",
+  function: {
+    name: "read_file",
+    description: "Read the contents of a file",
+    parameters: {
+      type: "object",
+      properties: {
+        path: { type: "string" },
+      },
+      required: ["path"],
+    },
+  },
+}]
+
+const res = await openai.chat.completions.create({
+  model: "gpt-4o",
+  messages: [{ role: "user", content: "What's in package.json?" }],
+  tools,
+})
+
+// the model doesn't read the file...
+console.log(res.choices[0].message.tool_calls)
+```
+
+::right::
+
+<div v-click>
+
+It just answers with which tool to call:
+
+```json
+[
+  {
+    "id": "call_KfVpVI8G92RkdOcmnokuD2sp",
+    "type": "function",
+    "function": {
+      "name": "read_file",
+      "arguments": "{\"path\":\"package.json\"}"
+    }
+  }
+]
+```
+
+</div>
+
+<v-click>
+
+The model never touched the disk. It produced text. The harness does the rest.
+
+</v-click>
+
+---
+layout: center
+class: text-center
+---
+
+# Now we know the parts.
+
+How do we use them?
+
+---
+layout: intro-image-right
+image: 'images/agentic-images/guy_on_computer_16_9.png'
+---
 
 # Context engineering
 
@@ -153,7 +221,7 @@ The skill that actually matters.
 <v-clicks>
 
 - The agent only knows what you give it
-- Missing context leads to wrong output — same as with a new colleague
+- Missing context leads to wrong output, same as with a new colleague
 - Good context is concrete: paths, examples, constraints, what *not* to do
 
 </v-clicks>
@@ -174,7 +242,7 @@ layout: default
 
 You have probably heard of these. They sound like a new format you need to learn.
 
-They are markdown files the harness reads before it acts — project context, commands, conventions, the things you would otherwise repeat in every prompt.
+They are markdown files the harness reads before it acts. Project context, commands, conventions, the things you would otherwise repeat in every prompt.
 
 </v-clicks>
 
@@ -245,11 +313,13 @@ From writing every line to directing and reviewing.
 layout: default
 ---
 
-# A guess at where this is going
+# So why isn't Claude Code the future?
 
 <v-clicks>
 
-If agentic coding sticks around — and that is an *if* — the interesting direction is harnesses you can open up and modify.
+It is a closed bundle: one harness, tied to one model family, that you cannot open up.
+
+If agentic coding sticks around (and that is an *if*), the interesting direction is the opposite: harnesses you can open and modify.
 
 - See what the model actually sees
 - See where your tokens go
@@ -265,23 +335,21 @@ Claude Code is closed. OpenCode is more open. [Pi](https://pi.dev) goes further:
 
 <v-click>
 
-Not a recommendation. A direction worth watching.
+The future is picking your own model, supplier, and harness. Not betting on one bundle.
 
 </v-click>
 
 ---
 layout: intro-image
-image: 'images/final.png'
+image: 'images/agentic-images/sunset_2_3_format.png'
 ---
-
-<!-- TODO: Replace images/final.png with a closing/outro image -->
 
 # Takeaway
 
 <v-clicks>
 
 - A model is text in, text out. A harness is what makes it act.
-- Model, harness, supplier — three layers, mix and match.
+- Model, harness, supplier. Three layers, mix and match.
 - Context is what you bring. Feedback loops are what your project provides.
 - The tools will keep changing. The fundamentals will not.
 
