@@ -25,7 +25,9 @@ const response = await openai.chat.completions.create({
   model: "gpt-4o",
   messages: [{ role: "user", content: "What's in package.json?" }],
   tools,
+  tool_choice: "auto", // make it call a tool instead of answering in prose
 })
 
 // 3. The model doesn't read the file. It just says which tool to call, as JSON.
-console.log(JSON.stringify(response.choices[0].message.tool_calls, null, 2))
+const message = response.choices[0].message
+console.log(JSON.stringify(message.tool_calls ?? message.content, null, 2))
