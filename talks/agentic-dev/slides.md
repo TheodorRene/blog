@@ -227,18 +227,18 @@ layoutClass: gap-8
 
 <div v-click="1">
 
-- **AGENTS.md** — project specific notes, added to the system prompt
+- **AGENTS.md** — project notes, injected into the prompt
 </div>
 
 <div v-click="3">
 
-- **Skills** — also just markdown. Stay lean, add one when you keep steering the same way.
+- **Skills** — markdown too. Stay lean.
 
 </div>
 
 <div v-click="4">
 
-- **MCP** — just more tools. CLI will often work more than fine.
+- **MCP** — more tools. Usually the CLI is enough.
 
 </div>
 
@@ -249,13 +249,8 @@ layoutClass: gap-8
 ```md
 # AGENTS.md
 
-## Commands
-- `npm run test:int` needs Postgres up first
-- Run `npm run db:gen` after schema changes
-
-## Glossary
+- `npm run db:gen` after schema changes
 - "CR" = Control Report, not change request
-- "Framework" = a compliance standard, not the web kind
 ```
 
 </div>
