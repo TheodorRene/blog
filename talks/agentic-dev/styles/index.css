@@ -34,6 +34,12 @@ body,
   background-blend-mode: overlay, multiply;
 }
 
+/* Full-bleed image layouts: let the photo render clean, no green multiply / grain */
+.slidev-layout.intro-image {
+  background-color: transparent;
+  background-blend-mode: normal;
+}
+
 /* Links carry the coral accent */
 .slidev-layout a {
   color: #ef5a4c;

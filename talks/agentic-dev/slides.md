@@ -51,21 +51,20 @@ layout: intro-image-right
 image: 'images/agentic-images/a_small_being_2_3_format.png'
 ---
 
-# It's three things
-
-"AI coding tools" are really three things, welded together.
+# AI coding tools are three things:
 
 <v-clicks>
 
 - **Models** — the brain. GPT, Claude, Gemini.
-- **Suppliers** — where you get them. OpenAI, OpenRouter, GitHub, Ollama on your laptop.
-- **Harnesses** — what lets the model act.
+- **Suppliers (Inference providers)** —  OpenAI, Anthropic, OpenRouter, GitHub, Ollama(local)
+- **Harnesses** — what lets the model act (Claude Code, Codex, Agents in
+  VSCode..)
 
 </v-clicks>
 
 <v-click>
 
-Mix and match. No single right combination.
+Mix and match
 
 </v-click>
 
@@ -76,11 +75,12 @@ image: 'images/agentic-images/agents_around_computer_16_9.png'
 
 # Agent = model + harness
 
-A model is just text in, text out. Every turn, the harness hands it two things:
+text in, text out. Every turn, the harness hands it two things:
 
 <div v-click>
 
 - A **system prompt** — text. Who it is, what it knows, your conventions.
+  Configurable, but some times only appendable
 
 </div>
 
@@ -92,15 +92,10 @@ A model is just text in, text out. Every turn, the harness hands it two things:
 
 <div v-click>
 
-- A set of **tools** — functions it may call: read files, run commands, search, call APIs.
+- A set of **tools** — functions it may call: read files, run commands, fetch
+  from the web
 
 </div>
-
-<v-click>
-
-Then it runs whatever the model asks for, feeds the result back, and loops.
-
-</v-click>
 
 ---
 layout: two-cols
@@ -109,7 +104,7 @@ layoutClass: gap-8
 
 # A tool call, up close
 
-You describe a tool. The model is trained to ask for it, as JSON.
+You describe a tool. The model are trained to ask for it
 
 ```ts {all|3-17|19-23|25-26}
 const openai = new OpenAI()
@@ -130,7 +125,7 @@ const tools = [{
 }]
 
 const res = await openai.chat.completions.create({
-  model: "gpt-4o",
+  model: "gpt-5.5",
   messages: [{ role: "user", content: "What's in package.json?" }],
   tools,
 })
@@ -166,9 +161,24 @@ const text = await readFile(path) // the actual read
 
 </div>
 
+---
+layout: intro-image-right
+image: 'images/agentic-images/ai_creature_vibe_16_9.png'
+---
+
+# The loop is the change
+
+You can use it like ChatGPT. That works.
+
 <v-click>
 
-The model never touched the disk. It produced text. The harness does the rest.
+But then *you* are the loop. Give some of that up.
+
+</v-click>
+
+<v-click>
+
+Hand it a goal. It explores, runs your tests, iterates.
 
 </v-click>
 
@@ -179,149 +189,119 @@ class: text-center
 
 # Now we know the parts.
 
-How do we use them?
-
 ---
-layout: two-cols
-layoutClass: gap-12
+layout: statement
 ---
 
-# Feedback loops
-
-How the tools work: explore, act, observe, repeat.
-
-<v-clicks>
-
-- It explores: reads files, searches the codebase, runs commands
-- It runs your tests and linters, then reads the output
-- It corrects itself and loops, without waiting for you
-
-</v-clicks>
-
-<v-click>
-
-Without this, an agent is glorified autocomplete.
-
-</v-click>
-
-::right::
-
-<div class="flex flex-col items-center justify-center h-full">
-  <img src="/images/agentic-images/core_agent_loop.avif" class="rounded-lg bg-white p-3 max-h-96 object-contain" />
-  <span class="text-xs opacity-60 mt-3">source: langchain.com</span>
-</div>
+# Work in text
 
 ---
 layout: intro-image-right
 image: 'images/agentic-images/guy_on_computer_16_9.png'
 ---
 
-# Context engineering
+# Context
 
-What goes in that system prompt is your call.
+Like briefing a new colleague.
 
 <v-clicks>
 
-- The agent only knows what you give it
-- Missing context leads to wrong output, same as with a new colleague
-- Good context is concrete: paths, examples, constraints, what *not* to do
+- They know the trade, not your project.
+- It reads the codebase, gathers some itself.
+- Steer it. Notice what it keeps getting wrong.
 
 </v-clicks>
 
 <v-click>
 
-The one skill that carries over. You learn it by using a tool on real work, not by reading about it.
+So write that down.
 
 </v-click>
 
 ---
-layout: default
+layout: two-cols
+layoutClass: gap-8
 ---
 
 # AGENTS.md, Skills, MCP
 
-<v-clicks>
+<div v-click="1">
 
-AGENTS.md, CLAUDE.md, Skills: markdown files the harness reads and drops into the system prompt. The context you would otherwise repeat in every prompt.
+- **AGENTS.md** — project specific notes, added to the system prompt
+</div>
 
-</v-clicks>
+<div v-click="3">
 
-<v-click>
+- **Skills** — also just markdown. Stay lean, add one when you keep steering the same way.
+
+</div>
+
+<div v-click="4">
+
+- **MCP** — just more tools. CLI will often work more than fine.
+
+</div>
+
+::right::
+
+<div v-click="2">
 
 ```md
 # AGENTS.md
 
 ## Commands
-- bun run dev       # dev server
-- bun run typecheck # type checking
+- `npm run test:int` needs Postgres up first
+- Run `npm run db:gen` after schema changes
 
-## Guidelines
-- Keep components small and focused
-- Prefer editing existing files over creating new ones
+## Glossary
+- "CR" = Control Report, not change request
+- "Framework" = a compliance standard, not the web kind
 ```
 
-</v-click>
-
-<v-click>
-
-Nothing magical. It all becomes one block of text the model reads. And MCP? Same story for the other half: a standard way to plug in more tools.
-
-</v-click>
+</div>
 
 ---
-layout: default
+layout: intro-image-right
+image: 'images/agentic-images/a_few_small_2_3.png'
 ---
 
-# So why isn't Claude Code the future?
+# Claude Code is not the future
 
 <v-clicks>
 
-It is a closed bundle: one harness, tied to one model family, that you cannot open up.
-
-If agentic coding sticks around (and that is an *if*), the interesting direction is the opposite: harnesses you can open and modify.
-
-- See exactly what the model sees
-- See where your tokens go
-- Keep the primitives you need, drop the ones you don't
+- The model is a black box. The harness doesn't have to be.
+- Not one thing, but three: supplier, model, harness.
+- The tool calls run on your machine.
+- Open source
 
 </v-clicks>
 
-<v-click>
-
-Claude Code is closed. OpenCode is more open. [Pi](https://pi.dev) goes further: minimal by design, you assemble the rest.
-
-</v-click>
-
-<v-click>
-
-The future is picking your own model, supplier, and harness. Not betting on one bundle.
-
-</v-click>
-
 ---
-layout: intro-image
+layout: intro-image-right
 image: 'images/agentic-images/sunset_2_3_format.png'
 ---
 
-# Takeaway
+# Still not behind.
 
 <v-clicks>
 
-- A model is text in, text out. A harness is what makes it act.
-- Model, harness, supplier. Three layers, mix and match.
-- Context is what you bring. Feedback loops are what your project provides.
-- The tools will keep changing. The fundamentals will not.
+- You know the fundamentals now. It's just text underneath.
+- Keep it simple: a model and terminal commands go a long way.
 
 </v-clicks>
 
 <v-click>
 
-Pick a tool. Use it on a real project. Learn by steering it.
+Pick one. Use it on something real.
 
 </v-click>
 
-<br />
+<div class="mt-12 text-sm opacity-80">
 
 [blog.theodorc.no](https://blog.theodorc.no) · [@theodorc.no on Bluesky](https://bsky.app/profile/theodorc.no)
 
-<PoweredBySlidev mt-6 />
+</div>
+
+<div class="mt-6 flex justify-center">
+  <img src="/images/impero_logo.jpg" class="h-24 rounded-md" />
+</div>
