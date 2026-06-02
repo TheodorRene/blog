@@ -1,5 +1,13 @@
 [
   {
+    "title": "The Fundamentals of Agentic Coding",
+    "date": "2026-06-03",
+    "event": "NDC Copenhagen 2026",
+    "description": "A lightning talk on the fundamentals of agentic coding. An agent is a model plus a harness, and most of what looks complicated is just text.",
+    "slidesUrl": "/talks/agentic-dev/",
+    "tags": ["AI", "agentic coding", "NDC"]
+  },
+  {
     "title": "Brand your types!",
     "date": "2024-06-12",
     "event": "NDC Oslo 2024",

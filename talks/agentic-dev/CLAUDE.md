@@ -14,6 +14,15 @@ bun run build    # Build to dist/
 bun run export   # Export slides to PDF/images
 ```
 
+## Deployment
+
+This talk is not its own site. It ships as a subpath of the main blog at `/talks/agentic-dev/`.
+
+- The blog's root build runs `scripts/build-talks.sh`, which auto-discovers every `talks/*/` containing a `slides.md` and runs `slidev build --base "/talks/<slug>/"` into the blog's output. No per-talk deploy config (`netlify.toml`, `vercel.json` here) is used by that pipeline.
+- To make a talk appear in the blog's `/talks` listing, add an entry to `src/data/talks.json` at the repo root. Without it the talk still builds and is reachable by URL, but nothing links to it.
+- Assets referenced from `slides.md` must be git-tracked; Netlify builds from the repo, not your working tree.
+- Deploy happens on push to the repo. There is no manual deploy step.
+
 ## Structure
 
 - `slides.md` — the entire presentation (single source of truth)
