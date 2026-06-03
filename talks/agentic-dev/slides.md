@@ -235,7 +235,7 @@ layoutClass: gap-8
 
 <div v-click="3" class="my-8 text-xl">
 
-- **Skills** — markdown too. Stay lean.
+- **Skills** — Markdown too. Stay lean.
 
 </div>
 
