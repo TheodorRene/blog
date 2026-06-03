@@ -62,7 +62,9 @@ image: 'images/agentic-images/a_small_being_2_3_format.png'
 
 </v-clicks>
 
+<v-click>
 Mix and match
+</v-click>
 
 ---
 layout: intro-image-right
@@ -225,18 +227,19 @@ layoutClass: gap-8
 
 # AGENTS.md, Skills, MCP
 
-<div v-click="1">
+<div v-click="1" class="my-8 text-xl">
 
 - **AGENTS.md** — project notes, injected into the prompt
+
 </div>
 
-<div v-click="3">
+<div v-click="3" class="my-8 text-xl">
 
 - **Skills** — markdown too. Stay lean.
 
 </div>
 
-<div v-click="4">
+<div v-click="4" class="my-8 text-xl">
 
 - **MCP** — more tools. Usually the CLI is enough.
 
@@ -249,8 +252,13 @@ layoutClass: gap-8
 ```md
 # AGENTS.md
 
-- `npm run db:gen` after schema changes
+## Commands
+- `npm run test:int` needs Postgres up first
+- `npm run db:gen` after any schema change
+
+## Glossary
 - "CR" = Control Report, not change request
+- "Framework" = a compliance standard, not the web kind
 ```
 
 </div>
