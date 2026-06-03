@@ -62,11 +62,7 @@ image: 'images/agentic-images/a_small_being_2_3_format.png'
 
 </v-clicks>
 
-<v-click>
-
 Mix and match
-
-</v-click>
 
 ---
 layout: intro-image-right
@@ -75,7 +71,7 @@ image: 'images/agentic-images/agents_around_computer_16_9.png'
 
 # Agent = model + harness
 
-text in, text out. Every turn, the harness hands it two things:
+Every turn, the harness hands it two things:
 
 <div v-click>
 
@@ -104,7 +100,7 @@ layoutClass: gap-8
 
 # A tool call, up close
 
-You describe a tool. The model are trained to ask for it
+You describe a tool, and let the model know about it
 
 ```ts {all|3-17|19-23|25-26}
 const openai = new OpenAI()
@@ -166,19 +162,23 @@ layout: intro-image-right
 image: 'images/agentic-images/ai_creature_vibe_16_9.png'
 ---
 
-# The loop is the change
-
-You can use it like ChatGPT. That works.
+# The feedback loop changes
 
 <v-click>
 
-But then *you* are the loop. Give some of that up.
+- You can use it like ChatGPT
 
 </v-click>
 
 <v-click>
 
-Hand it a goal. It explores, runs your tests, iterates.
+- But then *you* control the loop. Give some of that up.
+
+</v-click>
+
+<v-click>
+
+- Hand it a goal. It explores, runs your tests, iterates.
 
 </v-click>
 
@@ -207,7 +207,7 @@ Like briefing a new colleague.
 <v-clicks>
 
 - They know the trade, not your project.
-- It reads the codebase, gathers some itself.
+- It can explore the codebase, gathers some itself.
 - Steer it. Notice what it keeps getting wrong.
 
 </v-clicks>
@@ -262,14 +262,14 @@ image: 'images/agentic-images/a_few_small_2_3.png'
 
 # Claude Code is not the future
 
-<v-clicks>
+<v-click>
 
 - The model is a black box. The harness doesn't have to be.
 - Not one thing, but three: supplier, model, harness.
 - The tool calls run on your machine.
 - Open source
 
-</v-clicks>
+</v-click>
 
 ---
 layout: intro-image-right
