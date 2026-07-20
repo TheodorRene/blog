@@ -3,6 +3,7 @@ title: "Trusting a plausible debugging story for too long"
 date: "2026-06-19T10:30:00+02:00"
 description: "I lost time to a bug because I believed a good explanation before I had proved where the failure was."
 tags: ["ai", "debugging", "rust"]
+draft: true
 ---
 
 I lost a fair bit of time on a bug recently. Not because the fix was hard, it
