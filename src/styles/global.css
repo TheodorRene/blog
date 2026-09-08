@@ -3,15 +3,10 @@
 @import '@webtui/css/base.css';
 @import '@webtui/theme-gruvbox';
 
-/* Utils */
-@import '@webtui/css/utils/box.css';
-
-/* Components */
-@import '@webtui/css/components/badge.css';
-@import '@webtui/css/components/button.css';
+/* Components. Only what the site actually uses: badge, button, view and the
+   box utils were shipping unused bytes. */
 @import '@webtui/css/components/separator.css';
 @import '@webtui/css/components/typography.css';
-@import '@webtui/css/components/view.css';
 
 @layer base {
   /* ── Gruvbox → Catppuccin-style variable aliases ── */
