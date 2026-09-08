@@ -75,6 +75,13 @@
     outline-offset: 2px;
   }
 
+  /* ── Separator: WebTUI's separator is inline-flex, so give it a width ── */
+  hr[is-~="separator"] {
+    --separator-color: var(--overlay0);
+    width: 100%;
+    border: 0;
+  }
+
   .site-nav {
     display: flex;
     justify-content: space-between;
