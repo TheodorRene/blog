@@ -19,7 +19,7 @@ function formatDate(date: Date): string {
   <ul class="post-list">
     {posts.map((post) => (
       <li>
-        <a href={`/posts/${post.id}`} class="post-list-link">
+        <a href={`/posts/${post.id}/`} class="post-list-link">
           <span class="post-list-date">{formatDate(post.data.date)}</span>
           <span class="post-list-title">{post.data.title}</span>
           {post.data.tags.length > 0 && (
