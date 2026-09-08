@@ -383,3 +383,21 @@
     }
   }
 }
+
+/* ── Link decoration overrides ───────────────────────────────────────────────
+   WebTUI's typography component and the gruvbox theme underline every `li a`
+   from the components layer, which outranks anything in the base layer above.
+   These live in the components layer, and carry an extra class, to beat
+   `[data-webtui-theme|=gruvbox] li a`. Prose links inside posts keep their
+   underline on purpose. */
+@layer components {
+  .post-list .post-list-link,
+  .talk-list .talk-list-links a {
+    text-decoration: none;
+  }
+
+  .post-list .post-list-link:hover .post-list-title,
+  .talk-list .talk-list-links a:hover {
+    text-decoration: underline;
+  }
+}
