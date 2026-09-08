@@ -98,7 +98,7 @@ mappings introduced with the plugins)
 - Supports staging hunks
 - Show possible commands by pressing `g?`
 
-![Diffviewer](/img/diffviewer.png)
+![Diffviewer](../../assets/img/diffviewer.png)
 
 ### [Neogit]("https://github.com/TimUntersberger/neogit")
 
@@ -106,7 +106,7 @@ mappings introduced with the plugins)
 - Nice keybindings for basic and advanced operations
 - Integration with diffview
 
-![Neogit](/img/neogit.png)
+![Neogit](../../assets/img/neogit.png)
 
 Right part of the screen is Neogit after pressing `c` to commit. It prompts with
 options to add, e.g `a` to amend or `h` to disable hooks. Then `c` again will
@@ -144,12 +144,12 @@ end
 I especially use `ctrl+p` (same keybindings as VScode if I ever have to return
 to the dark side) to search for files in git repos:
 
-![Git files](/img/git_files.png)
+![Git files](../../assets/img/git_files.png)
 
 and `ctr+f` to search through the content of
 all files:
 
-![Live Grep](/img/live_grep.png)
+![Live Grep](../../assets/img/live_grep.png)
 
 Both feature a nice preview of the file, but I've disabled this for `ctrl+p`.
 
@@ -187,7 +187,7 @@ When I press `ctrl+g` alone a "HUD" will open, displaying all possible actions.
 What you might have noticed is that there is a `desc` options for each keymap.
 This information is displayed in the HUD. See image below:
 
-![Which key](/img/which-key.png)
+![Which key](../../assets/img/which-key.png)
 
 ## End
 

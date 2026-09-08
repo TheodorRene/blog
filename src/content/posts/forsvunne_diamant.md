@@ -24,7 +24,7 @@ and its an awakener for me.
 But there is one case with Git and rebase that I don't understand. A simple
 workflow that might lose changes! Or so I think. Lets look at my illustration:
 
-![illustration](/img/diamond_git.png)
+![illustration](../../assets/img/diamond_git.png)
 
 This is my hypothesis, and through this blogpost we will found out what actually
 happens. Will the change X return? Or is Git smart than I think? Stick around!

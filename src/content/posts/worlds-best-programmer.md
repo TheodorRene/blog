@@ -128,7 +128,7 @@ I'm sorry to put Scott Hanselman as an example here, I really like him, but
 please add a newline!! It hurts looking at it. (I also despise the Powerline
 theme, but I won't go into that. It's a personal preference)
 
-![Scott Hanselmans prompt](/img/scott_screen.png)
+![Scott Hanselmans prompt](../../assets/img/scott_screen.png)
 
 My prompt:
 ```bash

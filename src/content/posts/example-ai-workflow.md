@@ -34,7 +34,7 @@ wanted something better so I resorted to
 syntax for creating diagrams, but it was text based and as a programmer I
 preferred that. But it was still quite tedious to create them.
 
-![Excalidraw example](/img/ai-blog-3.png)
+![Excalidraw example](../../assets/img/ai-blog-3.png)
 
 Hmm, isn't there some new and fancy entity that's incredibly good a producing lots of text?
 
@@ -120,7 +120,7 @@ own [blog engine](https://github.com/theodorrene/goblog) in golang (I might
 revisit that at one point with these modern AI tools. I would love some ad hoc
 specialized sections in my blogposts)
 
-![Diagram from goblog](/img/ai-blog-1.png)
+![Diagram from goblog](../../assets/img/ai-blog-1.png)
 
 ## Iterating on the solution
 
@@ -152,7 +152,7 @@ Just a prompt away.
 
 Below I prompted my agent to create the diagram as a sequence diagram instead.
 
-![Iterating on the diagram](/img/ai-blog-2.png)
+![Iterating on the diagram](../../assets/img/ai-blog-2.png)
 
 ## Finally
 

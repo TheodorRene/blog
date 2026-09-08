@@ -12,7 +12,7 @@ I do recommend watching the
 come a cross that well in writing. But also looking back at my talk, I guess
 some of my jokes didn't work there either. Oh well, c'est la vie
 
-![Talk](/img/talk.png)
+![Talk](../../assets/img/talk.png)
 
 https://www.youtube.com/watch?v=yahbJV16GmE
 
@@ -47,7 +47,7 @@ What semantics does it carry to the programmer?
 
 ## Strings!
 
-![Talk](/img/stringy_strings.png)
+![Talk](../../assets/img/stringy_strings.png)
 
 They're great! They are easy (not to be confused with
 ["simple"](https://www.youtube.com/watch?v=SxdOUGdseq4)) and they are readable!
@@ -113,7 +113,7 @@ const id = "1234" as UUID;
 
 ## Example
 
-![Wavy](/img/wavy.png)
+![Wavy](../../assets/img/wavy.png)
 
 Lets have a look at a simple example (In the talk I have some fancy transitions,
 but I'm not sure how do it in my blog yet)
@@ -204,7 +204,7 @@ branding support as well, but I prefer to keep them separate.
 
 I want to show a real life example where it has helped me in my work.
 
-![Talk](/img/app.png)
+![Talk](../../assets/img/app.png)
 
 I work on a newsapp. We fetch data using GraphQL from a backend service owned by
 a different team. This services is also used by other clients, like the web
@@ -287,7 +287,7 @@ function addQueryParam(url: AbsoluteUrl) {
 
 ## Conclusion
 
-![Straight string](/img/straight_string.png)
+![Straight string](../../assets/img/straight_string.png)
 
 So what have we learned? What do we gain from parsing and adding
 branded types to our strings?

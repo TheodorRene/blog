@@ -197,7 +197,7 @@ Here's some `inline code` in a sentence. What about longer inline code like `con
 
 ## Images
 
-![NDC Oslo 2024](/img/ndc_oslo_2024.png)
+![NDC Oslo 2024](../../assets/img/talk.png)
 
 ## Horizontal Rule
 

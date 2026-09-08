@@ -105,11 +105,11 @@ decision. Shadow is added for some pizzazz.
 
 As viewed from the browser, your page looks like this
 
-![When developing](/img/dev_mode.png)
+![When developing](../../assets/img/dev_mode.png)
 
 and like this when printed (within the preview window)
 
-![When printing](/img/print_mode.png)
+![When printing](../../assets/img/print_mode.png)
 
 The content you want rendered has to be passed in as `children` to the component.
 
@@ -158,7 +158,7 @@ As you see in the example below none of sections are broken and white space till
 the end of the page is added. A gotcha is that margins are not respected on the
 next page, so a sufficient padding is needed or a global margin needs to be set.
 
-![Breaking content](/img/break_content.png)
+![Breaking content](../../assets/img/break_content.png)
 
 Full example showing the abstraction is quite easy to work with:
 
