@@ -116,8 +116,9 @@
     padding-top: 1ch;
   }
 
-  /* ── Blog index: suppress WebTUI list markers ── */
-  .post-list {
+  /* ── Post and talk lists: suppress WebTUI list markers ── */
+  .post-list,
+  .talk-list {
     list-style: none;
     padding: 0;
     margin-top: 1lh;
@@ -128,7 +129,9 @@
   }
 
   .post-list li::before,
-  .post-list li::marker {
+  .post-list li::marker,
+  .talk-list li::before,
+  .talk-list li::marker {
     content: none;
     display: none;
   }
@@ -159,12 +162,6 @@
     color: var(--overlay0);
     text-align: right;
     overflow-wrap: anywhere;
-  }
-
-  .talk-list {
-    list-style: none;
-    padding: 0;
-    margin-top: 1lh;
   }
 
   .talk-list-item {
