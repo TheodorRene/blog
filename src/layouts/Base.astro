@@ -11,7 +11,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImage = new URL(image, Astro.site).href;
 const metaDescription = description.trim() || 'Terminal-flavored blog posts and conference talks by theodorc.';
 
-import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
 ---
 
@@ -40,8 +39,6 @@ import '../styles/global.css';
     <meta name="twitter:description" content={metaDescription} />
     <meta name="twitter:image" content={ogImage} />
 
-    <ClientRouter />
-
     <script is:inline>
       // `autoplay` makes a browser fetch the whole clip on page load, wherever
       // it sits on the page, so these carry preload="none" and are started when
@@ -69,7 +66,11 @@ import '../styles/global.css';
         for (const video of videos) observer.observe(video);
       }
 
-      document.addEventListener('astro:page-load', armAutoplayVideos);
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', armAutoplayVideos);
+      } else {
+        armAutoplayVideos();
+      }
     </script>
 
     <title>{title}</title>
@@ -81,7 +82,7 @@ import '../styles/global.css';
         <div class="site-nav-links">
           <span class="site-nav-group">
             <a href="/">blog</a>
-            <a href="/talks">talks</a>
+            <a href="/talks/">talks</a>
             <a href="/rss.xml" target="_blank">rss</a>
           </span>
           <span class="site-nav-divider" aria-hidden="true">|</span>
