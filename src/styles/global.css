@@ -103,6 +103,26 @@
     gap: 0.5lh 2ch;
   }
 
+  /* Internal links, a divider, then the ones that leave the site. `gap:
+     inherit` keeps the groups in step with the container's own gap. */
+  .site-nav-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: inherit;
+  }
+
+  .site-nav-divider {
+    color: var(--overlay0);
+  }
+
+  .site-nav-ext {
+    /* inline-block so the hover underline stops at the word. */
+    display: inline-block;
+    margin-left: 0.25ch;
+    color: var(--overlay0);
+    font-size: 0.85em;
+  }
+
   .site-main {
     padding: 2ch 0;
   }

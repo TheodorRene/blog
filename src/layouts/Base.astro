@@ -49,11 +49,20 @@ import '../styles/global.css';
       <nav class="site-nav">
         <a href="/" class="site-brand">theodorc</a>
         <div class="site-nav-links">
-          <a href="/">blog</a>
-          <a href="/talks">talks</a>
-          <a href="https://github.com/theodorrene" target="_blank" rel="noopener">github</a>
-          <a href="https://www.linkedin.com/in/theodorcarlsen/" target="_blank" rel="noopener">linkedin</a>
-          <a href="/rss.xml" target="_blank">rss</a>
+          <span class="site-nav-group">
+            <a href="/">blog</a>
+            <a href="/talks">talks</a>
+            <a href="/rss.xml" target="_blank">rss</a>
+          </span>
+          <span class="site-nav-divider" aria-hidden="true">|</span>
+          <span class="site-nav-group">
+            <a href="https://github.com/theodorrene" target="_blank" rel="noopener"
+              >github<span class="site-nav-ext" aria-hidden="true">&#8599;</span></a
+            >
+            <a href="https://www.linkedin.com/in/theodorcarlsen/" target="_blank" rel="noopener"
+              >linkedin<span class="site-nav-ext" aria-hidden="true">&#8599;</span></a
+            >
+          </span>
         </div>
       </nav>
       <hr is-="separator" />
