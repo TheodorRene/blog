@@ -51,10 +51,11 @@ using scrolling keybindings; mimicking the act of scrolling with a mouse. Much
 more pleasant for the eye, and convenient when that sort of file exploration is
 needed.
 
-![Neoscroll in action](/img/neoscroll.gif)
+<video src="/img/neoscroll.mp4" width="1100" height="856" autoplay loop muted
+playsinline preload="metadata" aria-label="Neoscroll in action"></video>
 
-Unfortunately the framerate of the gif does not do the improvement justice so
-you just have to trust me.
+Unfortunately the framerate of the recording does not do the improvement justice
+so you just have to trust me.
 
 ## 2. Leap
 

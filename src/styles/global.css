@@ -269,8 +269,8 @@
     margin-top: 0.5lh;
   }
 
-  /* ── Images: constrain to container ── */
-  [is-~="typography-block"] img {
+  /* ── Images and video: constrain to container ── */
+  [is-~="typography-block"] :is(img, video) {
     max-width: 100%;
     height: auto;
     display: block;
