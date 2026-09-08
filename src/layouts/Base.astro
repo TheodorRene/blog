@@ -42,6 +42,36 @@ import '../styles/global.css';
 
     <ClientRouter />
 
+    <script is:inline>
+      // `autoplay` makes a browser fetch the whole clip on page load, wherever
+      // it sits on the page, so these carry preload="none" and are started when
+      // they scroll into view. Without JS they keep their controls and play on
+      // click.
+      function armAutoplayVideos() {
+        const videos = document.querySelectorAll('video[data-autoplay]');
+        if (!videos.length || !('IntersectionObserver' in window)) return;
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              const video = entry.target;
+              if (!entry.isIntersecting) {
+                video.pause();
+                continue;
+              }
+              video.removeAttribute('controls');
+              video.play().catch(() => video.setAttribute('controls', ''));
+            }
+          },
+          { rootMargin: '300px' },
+        );
+
+        for (const video of videos) observer.observe(video);
+      }
+
+      document.addEventListener('astro:page-load', armAutoplayVideos);
+    </script>
+
     <title>{title}</title>
   </head>
   <body>

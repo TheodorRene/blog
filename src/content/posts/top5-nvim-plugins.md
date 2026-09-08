@@ -51,8 +51,8 @@ using scrolling keybindings; mimicking the act of scrolling with a mouse. Much
 more pleasant for the eye, and convenient when that sort of file exploration is
 needed.
 
-<video src="/img/neoscroll.mp4" width="1100" height="856" autoplay loop muted
-playsinline preload="metadata" aria-label="Neoscroll in action"></video>
+<video src="/img/neoscroll.mp4" width="1100" height="856" loop muted playsinline
+preload="none" controls data-autoplay aria-label="Neoscroll in action"></video>
 
 Unfortunately the framerate of the recording does not do the improvement justice
 so you just have to trust me.
@@ -67,8 +67,8 @@ shows you a third character to press to leap to that destination. It feels like
 magic when you use it since you look at where you want to go, do the keystrokes,
 and boom you're there.
 
-<video src="/img/leap.mp4" width="1100" height="568" autoplay loop muted
-playsinline preload="metadata" aria-label="Leap in action"></video>
+<video src="/img/leap.mp4" width="1100" height="568" loop muted playsinline
+preload="none" controls data-autoplay aria-label="Leap in action"></video>
 
 Here I want to leap to `tabline`. I press `sta` in sequence, noticing that there
 are duplicates and have to press `s` as well which is highlighted in pink/purple.
