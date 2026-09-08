@@ -5,6 +5,7 @@
     "event": "NDC Copenhagen 2026",
     "description": "A lightning talk on the fundamentals of agentic coding. An agent is a model plus a harness, and most of what looks complicated is just text.",
     "slidesUrl": "/talks/agentic-dev/",
+    "videoUrl": "https://www.youtube.com/watch?v=HUDIxO-F63E",
     "tags": ["AI", "agentic coding", "NDC"]
   },
   {
