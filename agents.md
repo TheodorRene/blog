@@ -34,13 +34,29 @@ Dark mode only — no light/dark toggle.
 | `src/content/posts/` | Markdown blog posts |
 | `talks/` | Slidev presentation source (each talk in its own subdirectory) |
 | `scripts/build-talks.sh` | Builds Slidev decks to `public/talks/[slug]/` |
-| `public/img/` | Blog post images |
+| `src/assets/img/` | Blog post images, optimized by Astro at build time |
+| `public/img/` | Favicons, and video and gifs, which astro:assets cannot process |
 
 ## Important patterns
 
 ### Content collections (Astro 6)
 
 Astro 6 uses `src/content.config.ts` with the `glob()` loader — NOT the older `src/content/config.ts` pattern.
+
+### Post images
+
+Images go in `src/assets/img/` and are referenced relatively from the markdown,
+`![alt](../../assets/img/foo.png)`. That routes them through `astro:assets`,
+which emits webp and adds `width`, `height`, `loading` and `decoding`. Anything
+in `public/` is copied to the output untouched, so absolute `/img/...` paths get
+no optimization.
+
+Downscale sources to 1600px before committing them. Markdown images carry no
+width, so Astro has nothing to resize against and will ship whatever it is
+given.
+
+Animated gifs and video stay in `public/img/` with absolute paths. sharp
+flattens animation, so they have to be encoded by hand.
 
 ### Draft filtering
 
