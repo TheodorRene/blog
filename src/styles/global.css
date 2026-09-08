@@ -136,10 +136,12 @@
     display: none;
   }
 
+  /* A wrapping flex line, not a fixed grid: the title gets the leftover room
+     and a long tag list drops to its own line instead of squeezing the title. */
   .post-list-link {
-    display: grid;
-    grid-template-columns: 11ch minmax(0, 1fr) auto;
-    align-items: start;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
     column-gap: 2ch;
     row-gap: 0.25lh;
     padding: 0.5lh 0;
@@ -147,18 +149,22 @@
   }
 
   .post-list-date {
+    flex: 0 0 10ch;
     color: var(--overlay1);
     white-space: nowrap;
-    flex-shrink: 0;
   }
 
   .post-list-title {
+    /* A base size, so a long title wraps inside its own column instead of
+       breaking onto a line below the date. */
+    flex: 1 1 30ch;
     color: var(--text);
     min-width: 0;
     overflow-wrap: anywhere;
   }
 
   .post-list-tags {
+    margin-left: auto;
     color: var(--overlay0);
     text-align: right;
     overflow-wrap: anywhere;
@@ -326,15 +332,6 @@
       justify-content: flex-start;
       gap: 0.5lh 1.5ch;
     }
-
-    .post-list-link {
-      grid-template-columns: 11ch minmax(0, 1fr);
-    }
-
-    .post-list-tags {
-      grid-column: 2;
-      text-align: left;
-    }
   }
 
   @media (max-width: 768px) {
@@ -346,9 +343,19 @@
       padding: 1.5ch 0;
     }
 
-    .post-list-link,
+    .post-list-link {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
     .talk-list-heading {
       grid-template-columns: 1fr;
+    }
+
+    /* Column direction: flex-basis would size these vertically. */
+    .post-list-date,
+    .post-list-title {
+      flex: 0 0 auto;
     }
 
     .post-list-date,
@@ -358,7 +365,7 @@
     }
 
     .post-list-tags {
-      grid-column: auto;
+      margin-left: 0;
       text-align: left;
     }
 
