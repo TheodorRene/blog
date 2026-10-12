@@ -25,15 +25,16 @@ export default defineConfig({
       [
         rehypeAutolinkHeadings,
         {
-          behavior: 'append',
+          // The link is the heading's markdown marker, `##` for an h2.
+          behavior: 'prepend',
           properties: {
             className: ['heading-anchor'],
             ariaLabel: 'Link to section',
           },
-          content: {
+          content: (heading) => ({
             type: 'text',
-            value: '#',
-          },
+            value: '#'.repeat(Number(heading.tagName.slice(1))),
+          }),
         },
       ],
       rehypeImageSizes,

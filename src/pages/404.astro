@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="not found | theodorc" description="There is nothing at this address.">
+  <h1>~/404</h1>
+  <pre class="not-found-shell"><span class="not-found-prompt">$</span> cd <span data-missing-path>that/page/</span>
+cd: no such file or directory: <span data-missing-path>that/page/</span></pre>
+  <p class="not-found-text">
+    The link is old, or the page never existed.
+  </p>
+  <p class="post-backlink">
+    <a href="/">&larr; back to posts</a>
+  </p>
+
+  <script is:inline>
+    // The page is static, so the path the reader asked for is filled in here.
+    for (const el of document.querySelectorAll('[data-missing-path]')) {
+      el.textContent = location.pathname;
+    }
+  </script>
+</Base>
